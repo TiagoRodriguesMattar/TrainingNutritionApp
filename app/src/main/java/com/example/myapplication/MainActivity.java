@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     public void TrainingActivity() {
-        Intent i = new Intent(this, TrainingActivity.class);
+        Intent i = new Intent(this, indexActivity.class);
         startActivity(i);
     }
 }
