@@ -13,4 +13,13 @@
         android:textSize="26dp"
         android:layout_gravity="center"/>
 
+    <Button
+        android:id="@+id/exerciseLibrary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="exerciseLibraryBtn"
+        android:text="Biblioteca De Vídeos"
+        android:textSize="20dp" />
+
 </FrameLayout>
