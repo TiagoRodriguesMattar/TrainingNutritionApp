@@ -65,7 +65,9 @@ public class TreinoFragment extends Fragment {
     }
 
     public void exerciseLibraryBtn(View view) {
-        Intent i = new Intent(getActivity(), ExerciseLibraryActivity.class);
+        String ExerciseLib = "Biblioteca de vídeos";
+        Intent i = new Intent(getActivity(), VideoFilesActivity.class);
+        i.putExtra("ExerciseLibrary", ExerciseLib);
         startActivity(i);
     }
 
