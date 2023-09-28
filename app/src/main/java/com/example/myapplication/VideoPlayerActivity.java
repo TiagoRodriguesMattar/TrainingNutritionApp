@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -37,7 +38,7 @@ public class VideoPlayerActivity extends AppCompatActivity implements View.OnCli
     TextView title;
     ArrayList<MediaFiles> mVideoFiles = new ArrayList<>();
     ConcatenatingMediaSource concatenatingMediaSource;
-    ImageView nextButton, previousButton;
+    ImageView nextButton, previousButton, videoBack;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -57,12 +58,14 @@ public class VideoPlayerActivity extends AppCompatActivity implements View.OnCli
         mVideoFiles = getIntent().getParcelableArrayListExtra("videoArrayList");
         nextButton = findViewById(R.id.exo_next);
         previousButton = findViewById(R.id.exo_prev);
+        videoBack = findViewById(R.id.video_back);
 
         title = findViewById(R.id.video_title);
         title.setText(videoTitle);
 
         nextButton.setOnClickListener(this);
         previousButton.setOnClickListener(this);
+        videoBack.setOnClickListener(this);
 
         initializePlayer();
     }
@@ -74,22 +77,29 @@ public class VideoPlayerActivity extends AppCompatActivity implements View.OnCli
         DefaultDataSourceFactory dataSourceFactory = new DefaultDataSourceFactory(
                 this, Util.getUserAgent(this, "app"));
 
-        concatenatingMediaSource = new ConcatenatingMediaSource();
+        /*concatenatingMediaSource = new ConcatenatingMediaSource();
         for (MediaFiles mediaFile : mVideoFiles) {
             Uri videoUri = Uri.parse(mediaFile.getPath());
             MediaSource mediaSource = new ProgressiveMediaSource.Factory(dataSourceFactory)
                     .createMediaSource(videoUri);
             concatenatingMediaSource.addMediaSource(mediaSource);
-        }
+        }*/
 
-        player.setMediaSource(concatenatingMediaSource);
+        MediaFiles mediaFiles;
+        mediaFiles = mVideoFiles.get(position);
+        Uri uri = Uri.parse(mediaFiles.getPath());
+        MediaSource mediaSource = new ProgressiveMediaSource.Factory(dataSourceFactory).createMediaSource(uri);
+
+        player.setMediaSource(mediaSource);
         player.setPlayWhenReady(true);
-        player.seekTo(position, C.TIME_UNSET);
+        //player.seekTo(position, C.TIME_UNSET);
 
         player.addListener(new Player.EventListener() {
             @Override
             public void onPlaybackStateChanged(int state) {
-                // Pode lidar com os estados de reprodução, se necessário
+                if (state == Player.STATE_ENDED) {
+                    player.stop();
+                }
             }
 
             @Override
@@ -163,6 +173,8 @@ public class VideoPlayerActivity extends AppCompatActivity implements View.OnCli
                 Toast.makeText(this, "No Previous Video", Toast.LENGTH_SHORT).show();
                 finish();
             }
+        } else if (viewId == R.id.video_back) {
+            finish();
         }
     }
 }
