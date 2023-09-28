@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">My Application</string>
-    <string name="exercise_Library">Exercise Library</string>
     <string name="treinoFragment">Treino</string>
     <string name="nutricaoFragment">Nutrição</string>
     <string name="perfilFragment">Perfil</string>
     <string name="title_activity_exercise_library">ExerciseLibraryActivity</string>
-    <string name="novoExercicio">Novo Exercício</string>
+    <string name="biblioteca_de_video">Biblioteca De Video</string>
+
 </resources>

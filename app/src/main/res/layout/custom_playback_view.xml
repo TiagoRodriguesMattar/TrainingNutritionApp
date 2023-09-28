@@ -35,7 +35,7 @@
                 android:maxLines="2"
                 android:text="This is title of video"
                 android:textColor="@color/white"
-                android:textSize="18sp"/>
+                android:textSize="20sp"/>
             
             <ImageView
                 android:id="@+id/video_list"
@@ -102,28 +102,15 @@
             android:layout_marginBottom="5dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:weightSum="7">
-
-            <ImageView
-                android:id="@+id/unlock"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
-                android:src="@drawable/ic_unlock"/>
+            android:weightSum="4">
 
             <ImageView
                 android:id="@+id/exo_rew"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_weight="1"
+                android:layout_marginLeft="58dp"
                 android:src="@drawable/ic_rewind"/>
-
-            <ImageView
-                android:id="@+id/exo_prev"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
-                android:src="@drawable/ic_previous"/>
 
             <ImageView
                 android:id="@+id/exo_play"
@@ -140,25 +127,11 @@
                 android:src="@drawable/ic_pause"/>
 
             <ImageView
-                android:id="@+id/exo_next"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_weight="1"
-                android:src="@drawable/ic_next"/>
-
-            <ImageView
                 android:id="@+id/exo_ffwd"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_weight="1"
-                android:src="@drawable/ic_forward"/>
-
-            <ImageView
-                android:id="@+id/scaling"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_weight="1"
-                android:src="@drawable/fit"/>
+                android:src="@drawable/ic_forward" />
 
         </LinearLayout>
 

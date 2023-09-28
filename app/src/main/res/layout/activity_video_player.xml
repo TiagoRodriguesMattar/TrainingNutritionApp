@@ -12,13 +12,13 @@
         android:layout_height="match_parent"
         android:background="@color/black"
         app:controller_layout_id="@layout/custom_playback_view"
-        app:fastforward_increment="10000"
+        app:fastforward_increment="2000"
         app:hide_on_touch="true"
         app:player_layout_id="@layout/exo_player_view"
         app:resize_mode="fit"
         app:show_timeout="4000"
         app:surface_type="surface_view"
-        app:rewind_increment="10000"
+        app:rewind_increment="2000"
         app:shutter_background_color="@color/black"
         app:use_controller="true" />
 

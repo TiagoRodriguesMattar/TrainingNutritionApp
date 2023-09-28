@@ -37,8 +37,7 @@ public class VideoPlayerActivity extends AppCompatActivity implements View.OnCli
     String videoTitle;
     TextView title;
     ArrayList<MediaFiles> mVideoFiles = new ArrayList<>();
-    ConcatenatingMediaSource concatenatingMediaSource;
-    ImageView nextButton, previousButton, videoBack;
+    ImageView videoBack;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -56,15 +55,11 @@ public class VideoPlayerActivity extends AppCompatActivity implements View.OnCli
         position = getIntent().getIntExtra("position", 0);
         videoTitle = getIntent().getStringExtra("video_title");
         mVideoFiles = getIntent().getParcelableArrayListExtra("videoArrayList");
-        nextButton = findViewById(R.id.exo_next);
-        previousButton = findViewById(R.id.exo_prev);
-        videoBack = findViewById(R.id.video_back);
 
         title = findViewById(R.id.video_title);
         title.setText(videoTitle);
 
-        nextButton.setOnClickListener(this);
-        previousButton.setOnClickListener(this);
+        videoBack = findViewById(R.id.video_back);
         videoBack.setOnClickListener(this);
 
         initializePlayer();
@@ -76,14 +71,6 @@ public class VideoPlayerActivity extends AppCompatActivity implements View.OnCli
 
         DefaultDataSourceFactory dataSourceFactory = new DefaultDataSourceFactory(
                 this, Util.getUserAgent(this, "app"));
-
-        /*concatenatingMediaSource = new ConcatenatingMediaSource();
-        for (MediaFiles mediaFile : mVideoFiles) {
-            Uri videoUri = Uri.parse(mediaFile.getPath());
-            MediaSource mediaSource = new ProgressiveMediaSource.Factory(dataSourceFactory)
-                    .createMediaSource(videoUri);
-            concatenatingMediaSource.addMediaSource(mediaSource);
-        }*/
 
         MediaFiles mediaFiles;
         mediaFiles = mVideoFiles.get(position);
@@ -105,7 +92,7 @@ public class VideoPlayerActivity extends AppCompatActivity implements View.OnCli
             @Override
             public void onPlayerError(ExoPlaybackException error) {
                 Toast.makeText(VideoPlayerActivity.this, "Video Playing Error", Toast.LENGTH_SHORT).show();
-                finish(); // Fecha a atividade em caso de erro de reprodução
+                finish();
             }
         });
     }
@@ -155,26 +142,7 @@ public class VideoPlayerActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View view) {
         int viewId = view.getId();
-        if (viewId == R.id.exo_next) {
-            try {
-                player.stop();
-                position++;
-                initializePlayer();
-            } catch (Exception e) {
-                Toast.makeText(this, "No Next Video", Toast.LENGTH_SHORT).show();
-                finish();
-            }
-        } else if (viewId == R.id.exo_prev) {
-            try {
-                player.stop();
-                position--;
-                initializePlayer();
-            } catch (Exception e) {
-                Toast.makeText(this, "No Previous Video", Toast.LENGTH_SHORT).show();
-                finish();
-            }
-        } else if (viewId == R.id.video_back) {
+        if (viewId == R.id.video_back)
             finish();
-        }
     }
 }

@@ -18,7 +18,8 @@
             android:configChanges="orientation|screenSize|layoutDirection"/>
         <activity
             android:name=".VideoFilesActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".indexActivity"/>
         <activity
             android:name=".indexActivity"
             android:exported="false" />
