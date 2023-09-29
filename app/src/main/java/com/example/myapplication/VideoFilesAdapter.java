@@ -40,12 +40,23 @@ public class VideoFilesAdapter extends RecyclerView.Adapter<VideoFilesAdapter.Vi
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.videoName.setText(videoList.get(position).getDisplayName());
-        holder.manu_more.setOnClickListener(new View.OnClickListener() {
+        holder.menu_more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(context, "menu more", Toast.LENGTH_SHORT).show();
             }
         });
+
+        switch (videoList.get(position).getDisplayName()) {
+            case "cstestecorte":
+                holder.musclesGroups.setText("Peitoral, Tríceps");
+                break;
+            case "csteste1corte":
+                holder.musclesGroups.setText("Costas");
+                break;
+            default:
+                break;
+        }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,13 +85,14 @@ public class VideoFilesAdapter extends RecyclerView.Adapter<VideoFilesAdapter.Vi
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView thumbnail, manu_more;
-        TextView videoName;
+        ImageView thumbnail, menu_more;
+        TextView videoName, musclesGroups;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             thumbnail = itemView.findViewById(R.id.thumbnail);
-            manu_more = itemView.findViewById(R.id.video_menu_more);
+            menu_more = itemView.findViewById(R.id.video_menu_more);
             videoName = itemView.findViewById(R.id.video_name);
+            musclesGroups = itemView.findViewById(R.id.video_muscles);
         }
     }
 }

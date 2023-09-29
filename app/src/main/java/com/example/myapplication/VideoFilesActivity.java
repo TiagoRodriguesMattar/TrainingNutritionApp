@@ -19,7 +19,6 @@ public class VideoFilesActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     private ArrayList<MediaFiles> videoFilesArrayList = new ArrayList<>();
     VideoFilesAdapter videoFilesAdapter;
-
     ImageView videoBack2;
 
     @Override

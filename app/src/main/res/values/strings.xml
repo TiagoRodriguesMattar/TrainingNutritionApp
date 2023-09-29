@@ -4,6 +4,6 @@
     <string name="nutricaoFragment">Nutrição</string>
     <string name="perfilFragment">Perfil</string>
     <string name="title_activity_exercise_library">ExerciseLibraryActivity</string>
-    <string name="biblioteca_de_video">Biblioteca De Video</string>
+    <string name="biblioteca_de_video">Biblioteca De Exercícios</string>
 
 </resources>

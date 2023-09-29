@@ -21,24 +21,41 @@
             android:src="@mipmap/vpicon"
             android:scaleType="centerCrop" />
     </androidx.cardview.widget.CardView>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_toEndOf="@+id/thumbnail_card"
         android:layout_toRightOf="@+id/thumbnail_card"
-        android:orientation="vertical"
-        android:layout_margin="5dp"
-        android:layout_toEndOf="@+id/thumbnail_card">
+        android:orientation="vertical">
+
         <TextView
             android:id="@+id/video_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:ellipsize="end"
+            android:maxLines="2"
             android:text="Video Name"
             android:textColor="@color/black"
-            android:maxLines="2"
-            android:textSize="20sp"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/video_muscles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
             android:ellipsize="end"
-            android:layout_marginBottom="5dp" />
+            android:maxLines="2"
+            android:text="Muscles"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
     </LinearLayout>
     <ImageView
         android:id="@+id/video_menu_more"
