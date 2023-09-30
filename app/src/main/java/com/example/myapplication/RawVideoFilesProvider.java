@@ -15,7 +15,10 @@ public class RawVideoFilesProvider {
         String packageName = context.getPackageName();
 
         // Lista de nomes dos arquivos de vídeo na pasta 'raw'
-        String[] rawVideoNames = {"cstestecorte", "csteste1corte"};
+        String[] rawVideoNames = {"flexao", "flexao_diamante", "flexao_aberta", "flexao_explosiva", "flexao_pike", "flexao_pseudo",
+                "extensao_de_triceps", "skull_crunches", "agachamento", "rosca_direta", "rosca_martelo", "panturrilha_em_pe",
+                "abdominal_normal", "abdominal_infra", "barra_fixa", "barra_fixa_fechada", "barra_fixa_aberta",
+                "barra_fixa_supinada"};
 
         for (String rawVideoName : rawVideoNames) {
             int resId = resources.getIdentifier(rawVideoName, "raw", packageName);

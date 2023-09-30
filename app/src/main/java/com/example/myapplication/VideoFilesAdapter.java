@@ -48,10 +48,58 @@ public class VideoFilesAdapter extends RecyclerView.Adapter<VideoFilesAdapter.Vi
         });
 
         switch (videoList.get(position).getDisplayName()) {
-            case "cstestecorte":
+            case "flexao":
+                holder.musclesGroups.setText("Peitoral");
+                break;
+            case "flexao_diamante":
                 holder.musclesGroups.setText("Peitoral, Tríceps");
                 break;
-            case "csteste1corte":
+            case "flexao_aberta":
+                holder.musclesGroups.setText("Peitoral");
+                break;
+            case "flexao_pseudo":
+                holder.musclesGroups.setText("Peitoral, Ombro");
+                break;
+            case "flexao_pike":
+                holder.musclesGroups.setText("Ombro");
+                break;
+            case "flexao_explosiva":
+                holder.musclesGroups.setText("Peitoral");
+                break;
+            case "extensao_de_triceps":
+                holder.musclesGroups.setText("Tríceps");
+                break;
+            case "skull_crunches":
+                holder.musclesGroups.setText("Tríceps");
+                break;
+            case "agachamento":
+                holder.musclesGroups.setText("Quadríceps, Glúteos");
+                break;
+            case "rosca_direta":
+                holder.musclesGroups.setText("Bíceps");
+                break;
+            case "rosca_martelo":
+                holder.musclesGroups.setText("Bíceps");
+                break;
+            case "panturrilha_em_pe":
+                holder.musclesGroups.setText("Panturrilha");
+                break;
+            case "abdominal_normal":
+                holder.musclesGroups.setText("Abdomên");
+                break;
+            case "abdominal_infra":
+                holder.musclesGroups.setText("Abdomên");
+                break;
+            case "barra_fixa":
+                holder.musclesGroups.setText("Costas");
+                break;
+            case "barra_fixa_fechada":
+                holder.musclesGroups.setText("Costas");
+                break;
+            case "barra_fixa_aberta":
+                holder.musclesGroups.setText("Costas");
+                break;
+            case "barra_fixa_supinada":
                 holder.musclesGroups.setText("Costas");
                 break;
             default:
