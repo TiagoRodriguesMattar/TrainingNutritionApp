@@ -5,5 +5,7 @@
     <color name="blue">#87CEEB</color>
     <color name="orange">#FFDEAD</color>
     <color name="green">#00FA9A</color>
+    <color name="dark_blue">#20205C</color>
+    <color name="grey">#808080</color>
 
 </resources>

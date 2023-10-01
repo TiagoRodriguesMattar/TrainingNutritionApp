@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/orange"
+    android:background="@color/grey"
     tools:context=".PerfilFragment">
 
     <TextView
@@ -11,6 +12,34 @@
         android:layout_height="wrap_content"
         android:text="@string/perfilFragment"
         android:textSize="26dp"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="412dp"
+        android:layout_height="115dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/perfil"
+        android:gravity="left"
+        android:text="  Bem vindo, "
+        android:textColor="@color/white"
+        android:textSize="35dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="108dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="50dp"
+        android:gravity="left"
+        android:text="  Aluno(a)"
+        android:textColor="@color/white"
+        android:textSize="35dp"
+        android:textStyle="bold"/>
 
 </FrameLayout>
