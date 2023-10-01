@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/idRVNews"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="45dp"
         android:orientation="vertical"
         android:layout_below="@+id/artigos_back"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
@@ -33,5 +33,6 @@
         android:gravity="center_vertical"
         android:layout_marginLeft="10dp"
         android:layout_toRightOf="@id/artigos_back" />
+
 
 </RelativeLayout>
