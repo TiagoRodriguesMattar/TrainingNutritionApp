@@ -38,7 +38,7 @@ public class NewsPageActivity extends AppCompatActivity {
     public void getNews(){
         Log.d("CREATION","Entrou");
         articles.clear();
-        String url = "https://newsapi.org/v2/everything?q=nutrição&sortBy=popularity&apiKey=92b3f225f18c48bcbf9df3c1ec7bef0d";
+        String url = "https://newsapi.org/v2/everything?q=nutrição esportiva&sortBy=popularity&apiKey=92b3f225f18c48bcbf9df3c1ec7bef0d";
         String BASE_URL = "https://newsapi.org/";
 
         Retrofit retrofit = new Retrofit.Builder()
