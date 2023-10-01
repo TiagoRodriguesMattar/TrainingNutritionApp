@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 
@@ -19,6 +22,7 @@ public class NewsPageActivity extends AppCompatActivity {
     private RecyclerView newsRV;
     private ArrayList<Articles> articles;
     private NewsRVAdapter news_rv_adapter;
+    ImageView news_back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,10 +35,17 @@ public class NewsPageActivity extends AppCompatActivity {
         news_rv_adapter = new NewsRVAdapter(articles,this);
         newsRV.setLayoutManager(new LinearLayoutManager(this));
         newsRV.setAdapter(news_rv_adapter);
-
+        news_back = findViewById(R.id.artigos_back);
+        news_back.setOnClickListener(this :: voltar);
 
         news_rv_adapter.notifyDataSetChanged();
     }
+
+    private void voltar(View view) {
+        Intent intent = new Intent(this, indexActivity.class);
+        startActivity(intent);
+    }
+
     public void getNews(){
         Log.d("CREATION","Entrou");
         articles.clear();
