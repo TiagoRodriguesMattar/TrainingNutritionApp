@@ -38,7 +38,65 @@ public class VideoFilesAdapter extends RecyclerView.Adapter<VideoFilesAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.videoName.setText(videoList.get(position).getDisplayName());
+        //holder.videoName.setText(videoList.get(position).getDisplayName());
+        switch (videoList.get(position).getDisplayName()) {
+            case "flexao":
+                holder.videoName.setText("Flexão");
+                break;
+            case "flexao_diamante":
+                holder.videoName.setText("Flexão Diamante");
+                break;
+            case "flexao_aberta":
+                holder.videoName.setText("Flexão Aberta");
+                break;
+            case "flexao_pseudo":
+                holder.videoName.setText("Flexão Pseudo");
+                break;
+            case "flexao_pike":
+                holder.videoName.setText("Flexão Ombro");
+                break;
+            case "flexao_explosiva":
+                holder.videoName.setText("Flexão Explosiva");
+                break;
+            case "extensao_de_triceps":
+                holder.videoName.setText("Extensão De Tríceps");
+                break;
+            case "skull_crunches":
+                holder.videoName.setText("Skull Crunches");
+                break;
+            case "agachamento":
+                holder.videoName.setText("Agaquamento");
+                break;
+            case "rosca_direta":
+                holder.videoName.setText("Rosca Direta");
+                break;
+            case "rosca_martelo":
+                holder.videoName.setText("Rosca Martelo");
+                break;
+            case "panturrilha_em_pe":
+                holder.videoName.setText("Panturrilha Em Pé");
+                break;
+            case "abdominal_normal":
+                holder.videoName.setText("Abdominal Normal");
+                break;
+            case "abdominal_infra":
+                holder.videoName.setText("Abdominal Infra");
+                break;
+            case "barra_fixa":
+                holder.videoName.setText("Barra Fixa");
+                break;
+            case "barra_fixa_fechada":
+                holder.videoName.setText("Barra Fixa Fechada");
+                break;
+            case "barra_fixa_aberta":
+                holder.videoName.setText("Barra Fixa Aberta");
+                break;
+            case "barra_fixa_supinada":
+                holder.videoName.setText("Barra Fixa Supinada");
+                break;
+            default:
+                break;
+        }
         holder.menu_more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
