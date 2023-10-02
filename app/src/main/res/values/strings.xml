@@ -1,9 +1,15 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="exercise_Library">Exercise Library</string>
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="treinoFragment">Treino</string>
     <string name="nutricaoFragment">Nutrição</string>
     <string name="perfilFragment">Perfil</string>
     <string name="title_activity_exercise_library">ExerciseLibraryActivity</string>
     <string name="biblioteca_de_video">Biblioteca De Exercícios</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_news_deatil">NewsDeatilActivity</string>
+    <string name="artigos">Artigos De Saúde</string>
 </resources>

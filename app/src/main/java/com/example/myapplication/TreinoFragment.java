@@ -69,6 +69,8 @@ public class TreinoFragment extends Fragment {
         Intent i = new Intent(getActivity(), VideoFilesActivity.class);
         i.putExtra("ExerciseLibrary", ExerciseLib);
         startActivity(i);
+        //Intent i = new Intent(getActivity(), ExerciseLibraryActivity.class);
+        //startActivity(i);
     }
 
     public void onViewCreated(View view, Bundle savedInstanceState) {

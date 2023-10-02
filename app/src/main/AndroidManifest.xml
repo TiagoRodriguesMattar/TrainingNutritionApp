@@ -20,6 +20,12 @@
             android:name=".VideoFilesActivity"
             android:exported="false"
             android:parentActivityName=".indexActivity"/>
+            android:name=".NewsPageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NewsDetailActivity"
+            android:exported="false" />
+
         <activity
             android:name=".indexActivity"
             android:exported="false" />
