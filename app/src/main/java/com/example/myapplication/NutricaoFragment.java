@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,8 +61,13 @@ public class NutricaoFragment extends Fragment {
     }
 
     public void ViewNews(View view){
-        Intent i = new Intent(getActivity(), NewsPageActivity.class);
-        startActivity(i);
+        Log.d("teste", "entrou viewnews func");
+        try {
+            Intent i = new Intent(getActivity(), NewsPageActivity.class);
+            startActivity(i);
+        } catch (Exception e) {
+            Log.d("exceção", "abc    " + e);
+        }
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -74,8 +80,8 @@ public class NutricaoFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        Button exerciseLibraryButton = view.findViewById(R.id.noticias);
-        exerciseLibraryButton.setOnClickListener(new View.OnClickListener() {
+        Button abc = view.findViewById(R.id.noticias);
+        abc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ViewNews(v);

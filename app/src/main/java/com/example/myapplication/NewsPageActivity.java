@@ -27,6 +27,7 @@ public class NewsPageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Log.d("teste 2", "entrou 2");
         setContentView(R.layout.activity_news_page);
 
         articles = new ArrayList<>();
