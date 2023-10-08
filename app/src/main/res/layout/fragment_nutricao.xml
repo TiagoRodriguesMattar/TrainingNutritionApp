@@ -7,22 +7,18 @@
     android:onClick="ViewNews"
     tools:context=".NutricaoFragment">
 
-
     <Button
         android:id="@+id/noticias"
-
-        android:layout_marginTop="20sp"
         android:layout_width="365dp"
         android:layout_height="wrap_content"
-        android:textSize="25sp"
-        android:text="@string/artigos"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="20dp"
         android:backgroundTint="#9A000000"
+        android:text="@string/artigos"
+        android:textSize="20dp"
         android:textColor="@android:color/white" />
-
-
 
 </FrameLayout>
