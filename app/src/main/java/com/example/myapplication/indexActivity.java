@@ -28,6 +28,8 @@ public class indexActivity extends AppCompatActivity {
                 replaceFragment(new NutricaoFragment());
             } else if (item.getItemId() == R.id.perfil) {
                 replaceFragment(new PerfilFragment());
+            } else if (item.getItemId() == R.id.config) {
+                replaceFragment(new ConfigFragment());
             }
 
             return true;
