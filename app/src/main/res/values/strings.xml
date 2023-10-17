@@ -13,4 +13,5 @@
     <string name="title_activity_news_deatil">NewsDeatilActivity</string>
     <string name="artigos">Artigos De Saúde</string>
     <string name="config">Configuração</string>
+    <string name="config2">Configurações</string>
 </resources>

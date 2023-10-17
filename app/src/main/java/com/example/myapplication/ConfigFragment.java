@@ -1,7 +1,6 @@
 package com.example.myapplication;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -18,12 +17,15 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class ConfigFragment extends Fragment {
 
@@ -33,8 +35,8 @@ public class ConfigFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     private final String channelID = "waterNotificationChannel";
+    private Timer timer = null;
 
-    //Context context;
     public ConfigFragment() {
         // Required empty public constructor
     }
@@ -58,8 +60,7 @@ public class ConfigFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_config, container, false);
     }
 
@@ -77,25 +78,49 @@ public class ConfigFragment extends Fragment {
         waterNotificationBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showNotification();
+
+                timer = new Timer();
+                TimerTask timerTask = new TimerTask() {
+                    @Override
+                    public void run() {
+                        showNotification();
+                    }
+                };
+                // 30 segundos entre cada notificação
+                timer.schedule(timerTask, 0, 30000);
+            }
+        });
+
+        Button waterNotificationBtnCancel = view.findViewById(R.id.water_notification_cancel);
+        waterNotificationBtnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (timer != null) {
+                    timer.cancel();
+                    timer = null;
+                } else {
+                    Toast.makeText(requireActivity(),"Notificações Já Desativadas.",Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
 
     public void showNotification() {
-        Intent intent = new Intent(getContext(), indexActivity.class);
+        //Intent intent = new Intent(getContext(), indexActivity.class);
         //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        PendingIntent pendingIntent = PendingIntent.getActivity(getContext(), 0, intent, PendingIntent.FLAG_IMMUTABLE);
+        //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        //PendingIntent pendingIntent = PendingIntent.getActivity(getContext(), 0, intent, PendingIntent.FLAG_IMMUTABLE);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getContext(), channelID)
                 .setSmallIcon(R.drawable.ic_notification)
-                .setContentTitle("Notificação de Hidratação")
-                .setContentText("Conteúdo inicial da notificação")
+                .setContentTitle("Aguinha Já! Hidrate-se")
+                .setContentText("Sua Saúde Importa!!")
                 .setStyle(new NotificationCompat.BigTextStyle()
-                        .bigText("Continuação do conteúdo da notificação"))
+                        .bigText("É hora de se hidratar. Não importa o quão ocupado você esteja, tire um momento agora para" +
+                                " beber um copo de água. Sua saúde e bem-estar agradecem. A água é a fonte da vida, vital para a " +
+                                "digestão, circulação, absorção de nutrientes e manutenção da temperatura corporal adequada."))
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                .setContentIntent(pendingIntent)
+                //.setContentIntent(pendingIntent)
                 .setAutoCancel(true);
 
         NotificationManager notificationManager = (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);

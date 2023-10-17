@@ -1,17 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ConfigFragment">
+    android:background="@color/white"
+    tools:context=".VideoFilesActivity">
+
+    <ImageView
+        android:id="@+id/config_ic"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:padding="10dp"
+        android:src="@drawable/ic_settings"
+        android:layout_alignLeft="@+id/water_notification"/>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/config"
-        android:textSize="26dp"
-        android:layout_gravity="center"
-        android:textColor="@android:color/black"/>
+        android:id="@+id/page_name"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="@string/config2"
+        android:textSize="25sp"
+        android:layout_toRightOf="@+id/config_ic"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="10dp" />
 
     <Button
         android:id="@+id/water_notification"
@@ -23,8 +36,24 @@
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="20dp"
         android:backgroundTint="#9A000000"
-        android:text="Notificação Hidratação"
-        android:textSize="20dp"
+        android:text="Permitir Notificações De Hidratação"
+        android:textSize="18dp"
+        android:layout_below="@id/page_name"
         android:textColor="@android:color/white" />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/water_notification_cancel"
+        android:layout_width="365dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#9A000000"
+        android:text="Cancelar Notificação De Hidratação"
+        android:textSize="18dp"
+        android:layout_below="@id/water_notification"
+        android:textColor="@android:color/white" />
+
+</RelativeLayout>
