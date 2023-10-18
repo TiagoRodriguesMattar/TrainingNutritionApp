@@ -22,6 +22,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import java.util.Timer;
@@ -78,7 +79,6 @@ public class ConfigFragment extends Fragment {
         waterNotificationBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 timer = new Timer();
                 TimerTask timerTask = new TimerTask() {
                     @Override
@@ -100,6 +100,32 @@ public class ConfigFragment extends Fragment {
                     timer = null;
                 } else {
                     Toast.makeText(requireActivity(),"Notificações Já Desativadas.",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        Switch s = view.findViewById(R.id.switch_permission);
+
+        s.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (s.isChecked()) {
+                    timer = new Timer();
+                    TimerTask timerTask = new TimerTask() {
+                        @Override
+                        public void run() {
+                            showNotification();
+                        }
+                    };
+                    // 30 segundos entre cada notificação
+                    timer.schedule(timerTask, 0, 30000);
+                } else {
+                    if (timer != null) {
+                        timer.cancel();
+                        timer = null;
+                    } else {
+                        Toast.makeText(requireActivity(),"Notificações Já Desativadas.",Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });

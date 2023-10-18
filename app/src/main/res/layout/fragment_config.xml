@@ -56,4 +56,22 @@
         android:layout_below="@id/water_notification"
         android:textColor="@android:color/white" />
 
+    <TextView
+        android:id="@+id/permission"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:textSize="18dp"
+        android:layout_toRightOf="@id/switch_permission"
+        android:layout_below="@id/water_notification_cancel"
+        android:text="Permitir Notificações de Hidratação" />
+
+    <Switch
+        android:id="@+id/switch_permission"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="25dp"
+        android:layout_below="@id/water_notification_cancel"
+        android:theme="@style/SwitchCompatTheme" />
 </RelativeLayout>
