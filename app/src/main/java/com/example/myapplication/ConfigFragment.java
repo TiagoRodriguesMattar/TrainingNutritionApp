@@ -75,7 +75,7 @@ public class ConfigFragment extends Fragment {
             }
         }
 
-        Button waterNotificationBtn = view.findViewById(R.id.water_notification);
+        /*Button waterNotificationBtn = view.findViewById(R.id.water_notification);
         waterNotificationBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -102,7 +102,7 @@ public class ConfigFragment extends Fragment {
                     Toast.makeText(requireActivity(),"Notificações Já Desativadas.",Toast.LENGTH_SHORT).show();
                 }
             }
-        });
+        });*/
 
         Switch s = view.findViewById(R.id.switch_permission);
 

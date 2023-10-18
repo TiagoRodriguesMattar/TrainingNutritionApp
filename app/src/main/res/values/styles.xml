@@ -1,0 +1,6 @@
+<resources>
+    <!-- Define your custom style for the SwitchCompat -->
+    <style name="SwitchCompatTheme" >
+        <item name="colorControlActivated">@color/lime_green</item>
+    </style>
+</resources>

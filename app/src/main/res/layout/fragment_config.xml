@@ -13,8 +13,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:padding="10dp"
-        android:src="@drawable/ic_settings"
-        android:layout_alignLeft="@+id/water_notification"/>
+        android:src="@drawable/ic_settings" />
 
     <TextView
         android:id="@+id/page_name"
@@ -26,36 +25,6 @@
         android:gravity="center_vertical"
         android:layout_marginLeft="10dp" />
 
-    <Button
-        android:id="@+id/water_notification"
-        android:layout_width="365dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="20dp"
-        android:backgroundTint="#9A000000"
-        android:text="Permitir Notificações De Hidratação"
-        android:textSize="18dp"
-        android:layout_below="@id/page_name"
-        android:textColor="@android:color/white" />
-
-    <Button
-        android:id="@+id/water_notification_cancel"
-        android:layout_width="365dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="20dp"
-        android:backgroundTint="#9A000000"
-        android:text="Cancelar Notificação De Hidratação"
-        android:textSize="18dp"
-        android:layout_below="@id/water_notification"
-        android:textColor="@android:color/white" />
-
     <TextView
         android:id="@+id/permission"
         android:layout_width="wrap_content"
@@ -64,14 +33,14 @@
         android:layout_centerHorizontal="true"
         android:textSize="18dp"
         android:layout_toRightOf="@id/switch_permission"
-        android:layout_below="@id/water_notification_cancel"
+        android:layout_below="@id/page_name"
         android:text="Permitir Notificações de Hidratação" />
 
     <Switch
         android:id="@+id/switch_permission"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="25dp"
-        android:layout_below="@id/water_notification_cancel"
+        android:layout_marginLeft="15dp"
+        android:layout_below="@id/config_ic"
         android:theme="@style/SwitchCompatTheme" />
 </RelativeLayout>
