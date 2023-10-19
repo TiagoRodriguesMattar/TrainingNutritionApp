@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
@@ -24,7 +23,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.Toast;
-
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -106,9 +106,20 @@ public class ConfigFragment extends Fragment {
 
         Switch s = view.findViewById(R.id.switch_permission);
 
+        // Recupera o estado do Switch das preferências compartilhadas
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
+        boolean switchState = preferences.getBoolean("switch_state", false);
+
+        s.setChecked(switchState);
+
         s.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Salva o estado do Switch nas preferências compartilhadas
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putBoolean("switch_state", s.isChecked());
+                editor.apply();
+
                 if (s.isChecked()) {
                     timer = new Timer();
                     TimerTask timerTask = new TimerTask() {
@@ -123,8 +134,6 @@ public class ConfigFragment extends Fragment {
                     if (timer != null) {
                         timer.cancel();
                         timer = null;
-                    } else {
-                        Toast.makeText(requireActivity(),"Notificações Já Desativadas.",Toast.LENGTH_SHORT).show();
                     }
                 }
             }
