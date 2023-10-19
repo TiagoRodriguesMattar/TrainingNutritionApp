@@ -16,6 +16,12 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
+            android:name=".AcompanhamentoPesoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MonitoramentoCaloriasActivity"
+            android:exported="false" />
+        <activity
             android:name=".ImcDataActivity"
             android:exported="false" />
         <activity

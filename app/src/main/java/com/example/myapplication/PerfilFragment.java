@@ -69,14 +69,40 @@ public class PerfilFragment extends Fragment {
         startActivity(i);
     }
 
+    public void monCalbtn(View view) {
+        Intent i = new Intent(getActivity(), MonitoramentoCaloriasActivity.class);
+        startActivity(i);
+    }
+
+    public void acPesobtn(View view) {
+        Intent i = new Intent(getActivity(), AcompanhamentoPesoActivity.class);
+        startActivity(i);
+    }
+
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         Button imcCalculatorBtn = view.findViewById(R.id.imcCalculator);
+        Button monitoramentoCalBtn = view.findViewById(R.id.monitoramentoCalorias);
+        Button acompanhamentoPeso = view.findViewById(R.id.acompanhamentoPeso);
         imcCalculatorBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 imcDataBtn(v);
+            }
+        });
+
+        monitoramentoCalBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                monCalbtn(v);
+            }
+        });
+
+        acompanhamentoPeso.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                acPesobtn(v);
             }
         });
     }
