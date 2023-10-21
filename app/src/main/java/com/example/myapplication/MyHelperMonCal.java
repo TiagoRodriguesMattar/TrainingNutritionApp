@@ -25,7 +25,7 @@ public class MyHelperMonCal extends SQLiteOpenHelper{
 
     }
 
-    public void insertData(long x, int y){
+    public void insertData(int x, int y){
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
