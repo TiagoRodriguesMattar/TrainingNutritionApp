@@ -35,9 +35,13 @@ android {
 }
 
 dependencies {
+    implementation ("org.apache.commons:commons-lang3:3.13.0")
+    implementation ("com.fasterxml.jackson.core:jackson-databind:2.13.0")
     implementation ("com.android.support:multidex:1.0.3")
     implementation ("com.google.android.exoplayer:exoplayer:2.14.1")
     implementation ("com.github.bumptech.glide:glide:4.16.0")
+    implementation("androidx.navigation:navigation-fragment:2.5.3")
+    implementation("androidx.navigation:navigation-ui:2.5.3")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
     implementation ("com.squareup.okhttp3:okhttp:4.9.1")
     implementation("com.jzhangdeveloper.newsapi:newsapi-java:1.0.0")

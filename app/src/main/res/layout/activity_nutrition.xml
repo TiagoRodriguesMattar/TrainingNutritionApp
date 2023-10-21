@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:padding="16dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:context=".NutritionActivity">
+
+    <TextView
+        android:id="@+id/titulo_nutri"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="@string/saude"
+        android:textSize="25sp"
+        android:layout_marginBottom="40dp"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_below="@+id/titulo_nutri"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Digite seu nome"
+        android:inputType="text" />
+
+    <Button
+        android:layout_below="@+id/editText"
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enviar" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/RVnutri"
+        android:layout_marginTop="45dp"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+
+</RelativeLayout>
+
+
