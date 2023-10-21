@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 
 import java.io.IOException;
@@ -32,10 +33,13 @@ public class NutritionActivity extends AppCompatActivity {
     private String input = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ImageView videoBack2;
         TranslatorText translateRequest = new TranslatorText();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nutrition);
         editText = findViewById(R.id.editText);
+        videoBack2 = findViewById(R.id.video_back_2);
+        videoBack2.setOnClickListener(this :: voltar);
         button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +48,7 @@ public class NutritionActivity extends AppCompatActivity {
                 input = editText.getText().toString();
                 ApiRequest(input); // tem q digitar em ingles
             }
+
         });
 
 

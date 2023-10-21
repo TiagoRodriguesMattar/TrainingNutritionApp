@@ -8,8 +8,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     tools:context=".NutritionActivity">
 
+    <ImageView
+        android:id="@+id/video_back_2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:padding="10dp"
+        android:src="@drawable/ic_back_black" />
+
     <TextView
         android:id="@+id/titulo_nutri"
+        android:layout_toRightOf="@id/video_back_2"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="@string/saude"
