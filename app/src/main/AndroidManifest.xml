@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
+
+        <service android:name=".NotificationService" />
+
         <activity
             android:name=".VideoPlayerActivity"
             android:exported="false"
