@@ -69,6 +69,8 @@ public class MonitoramentoCaloriasActivity extends AppCompatActivity {
             }
         });
 
+        series.resetData(getDataPoint());
+
         exqInsert();
 
         ImageView caloriasBack;

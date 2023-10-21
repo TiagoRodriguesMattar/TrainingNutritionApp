@@ -63,6 +63,8 @@ public class AcompanhamentoPesoActivity extends AppCompatActivity {
             }
         });
 
+        series.resetData(getDataPoint());
+
         exqInsert();
 
         ImageView pesoBack;
