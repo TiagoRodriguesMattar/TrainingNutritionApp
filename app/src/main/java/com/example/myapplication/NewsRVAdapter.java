@@ -56,7 +56,7 @@ public class NewsRVAdapter extends RecyclerView.Adapter<NewsRVAdapter.ViewHolder
         return articlesArrayList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         private TextView titleTV,subTtitleTV;
         private ImageView newsIV;
         public ViewHolder(@NonNull View itemView) {

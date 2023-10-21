@@ -69,6 +69,15 @@ public class NutricaoFragment extends Fragment {
             Log.d("exceção", "abc    " + e);
         }
     }
+
+    public void ViewNutrition(View view){
+        try {
+            Intent i = new Intent(getActivity(), NutritionActivity.class);
+            startActivity(i);
+        } catch (Exception e) {
+            Log.d("exceção", "nutri    " + e);
+        }
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -81,10 +90,18 @@ public class NutricaoFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         Button abc = view.findViewById(R.id.noticias);
+        Button nutri = view.findViewById(R.id.nutricao);
         abc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ViewNews(v);
+            }
+        });
+
+        nutri.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ViewNutrition(v);
             }
         });
     }
