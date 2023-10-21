@@ -75,38 +75,8 @@ public class ConfigFragment extends Fragment {
             }
         }
 
-        /*Button waterNotificationBtn = view.findViewById(R.id.water_notification);
-        waterNotificationBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                timer = new Timer();
-                TimerTask timerTask = new TimerTask() {
-                    @Override
-                    public void run() {
-                        showNotification();
-                    }
-                };
-                // 30 segundos entre cada notificação
-                timer.schedule(timerTask, 0, 30000);
-            }
-        });
-
-        Button waterNotificationBtnCancel = view.findViewById(R.id.water_notification_cancel);
-        waterNotificationBtnCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (timer != null) {
-                    timer.cancel();
-                    timer = null;
-                } else {
-                    Toast.makeText(requireActivity(),"Notificações Já Desativadas.",Toast.LENGTH_SHORT).show();
-                }
-            }
-        });*/
-
         Switch s = view.findViewById(R.id.switch_permission);
 
-        // Recupera o estado do Switch das preferências compartilhadas
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
         boolean switchState = preferences.getBoolean("switch_state", false);
 
@@ -115,60 +85,24 @@ public class ConfigFragment extends Fragment {
         s.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Salva o estado do Switch nas preferências compartilhadas
+                // Salve o estado do Switch nas preferências compartilhadas
+                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putBoolean("switch_state", s.isChecked());
                 editor.apply();
 
                 if (s.isChecked()) {
-                    timer = new Timer();
-                    TimerTask timerTask = new TimerTask() {
-                        @Override
-                        public void run() {
-                            showNotification();
-                        }
-                    };
-                    // 30 segundos entre cada notificação
-                    timer.schedule(timerTask, 0, 30000);
+                    // Inicie o serviço para gerar notificações quando o switch estiver ativado
+                    Intent serviceIntent = new Intent(requireContext(), NotificationService.class);
+                    serviceIntent.setAction("start_notification");
+                    requireContext().startService(serviceIntent);
                 } else {
-                    if (timer != null) {
-                        timer.cancel();
-                        timer = null;
-                    }
+                    // Pare o serviço se o switch estiver desativado
+                    Intent serviceIntent = new Intent(requireContext(), NotificationService.class);
+                    serviceIntent.setAction("stop_notification");
+                    requireContext().startService(serviceIntent);
                 }
             }
         });
-    }
-
-    public void showNotification() {
-        //Intent intent = new Intent(getContext(), indexActivity.class);
-        //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        //PendingIntent pendingIntent = PendingIntent.getActivity(getContext(), 0, intent, PendingIntent.FLAG_IMMUTABLE);
-
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(getContext(), channelID)
-                .setSmallIcon(R.drawable.ic_notification)
-                .setContentTitle("Aguinha Já! Hidrate-se")
-                .setContentText("Sua Saúde Importa!!")
-                .setStyle(new NotificationCompat.BigTextStyle()
-                        .bigText("É hora de se hidratar. Não importa o quão ocupado você esteja, tire um momento agora para" +
-                                " beber um copo de água. Sua saúde e bem-estar agradecem. A água é a fonte da vida, vital para a " +
-                                "digestão, circulação, absorção de nutrientes e manutenção da temperatura corporal adequada."))
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                //.setContentIntent(pendingIntent)
-                .setAutoCancel(true);
-
-        NotificationManager notificationManager = (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel notificationChannel = notificationManager.getNotificationChannel(channelID);
-            if (notificationChannel == null) {
-                int importance = NotificationManager.IMPORTANCE_HIGH;
-                notificationChannel = new NotificationChannel(channelID, "description", importance);
-                notificationManager.createNotificationChannel(notificationChannel);
-            }
-        }
-
-        notificationManager.notify(0, builder.build());
     }
 }
