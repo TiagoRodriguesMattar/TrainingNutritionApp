@@ -25,6 +25,15 @@
             android:configChanges="orientation|screenSize|layoutDirection"
             android:exported="false" />
         <activity
+            android:name=".AcompanhamentoPesoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MonitoramentoCaloriasActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ImcDataActivity"
+            android:exported="false" />
+        <activity
             android:name=".VideoFilesActivity"
             android:exported="false"
             android:parentActivityName=".indexActivity" />
