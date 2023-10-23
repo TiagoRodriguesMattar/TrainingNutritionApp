@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background3"
+    tools:context=".ImcDataActivity"
+    android:padding="16dp">
+
+
+    <ImageView
+        android:id="@+id/imc_back"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:padding="10dp"
+        android:src="@drawable/ic_back" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Cálculo de IMC"
+        android:textSize="25sp"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/white"
+        android:layout_toRightOf="@id/imc_back" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="O IMC (Índice de Massa Corporal) é um cálculo simples que permite medir se alguém está ou não com o peso ideal. Insira seus dados para ver seu IMC"
+        android:textColor="@android:color/white"
+        android:textSize="20dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_below="@id/imc_back"
+        android:layout_marginTop="10dp"
+     />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Peso (Kg)"
+        android:textColor="@android:color/white"
+        android:textSize="26dp"
+        android:layout_below="@+id/textView4"
+        android:layout_marginTop="40dp"/>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Altura (cm)"
+        android:textColor="@android:color/white"
+        android:textSize="26dp"
+        android:layout_below="@+id/inputPeso"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/inputPeso"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:inputType="number"
+        android:hint="Peso"
+        android:layout_below="@+id/textView"
+        android:background="#9A000000"
+        android:drawableLeft="@drawable/balance_white"
+        android:drawablePadding="20dp"
+        android:padding="12dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/inputAltura"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:inputType="number"
+        android:hint="Altura"
+        android:layout_below="@+id/textView1"
+        android:background="#9A000000"
+        android:drawableLeft="@drawable/baseline_person_outline_24"
+        android:drawablePadding="20dp"
+        android:padding="12dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"/>
+
+    <Button
+        android:id="@+id/calculateImcBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/inputAltura"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#51000000"
+        android:text="Calcular" />
+
+    <LinearLayout
+        android:id="@+id/resultadoMaisMedida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/calculateImcBtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp">
+
+        <TextView
+            android:id="@+id/resultadoImc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="@android:color/white"
+            android:textSize="50sp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Kg/m²"
+            android:textColor="@android:color/white"
+            android:textSize="43sp"
+            android:layout_toRightOf="@+id/resultadoImc"
+            android:layout_marginLeft="9dp"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/situacaoImc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Muito abaixo do peso"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        android:layout_below="@id/resultadoMaisMedida"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"/>
+
+
+</RelativeLayout>
