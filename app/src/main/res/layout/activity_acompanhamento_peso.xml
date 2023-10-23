@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background3"
     tools:context=".MonitoramentoCaloriasActivity"
     android:padding="16dp">
 
@@ -13,12 +14,13 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:padding="10dp"
-        android:src="@drawable/ic_back_black" />
+        android:src="@drawable/ic_back" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="25dp"
         android:text="Acompanhamento de peso"
+        android:textColor="@android:color/white"
         android:textSize="20sp"
         android:gravity="center_vertical"
         android:layout_marginLeft="10dp"
@@ -27,6 +29,8 @@
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/inputPeso"
         android:layout_width="match_parent"
+        android:textColor="@android:color/white"
+        android:textColorHint="@color/white"
         android:hint="Peso (Kg)"
         android:layout_marginRight="170dp"
         android:layout_height="48dp"
@@ -40,6 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/pesoBack"
         android:layout_marginHorizontal="250dp"
+        android:backgroundTint="#51000000"
         android:text="Inserir" />
 
     <com.jjoe64.graphview.GraphView
