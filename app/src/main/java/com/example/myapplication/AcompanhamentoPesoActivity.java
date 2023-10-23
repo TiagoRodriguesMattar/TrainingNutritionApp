@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.jjoe64.graphview.DefaultLabelFormatter;
 import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.GridLabelRenderer;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.DataPointInterface;
 import com.jjoe64.graphview.series.LineGraphSeries;
@@ -72,6 +73,10 @@ public class AcompanhamentoPesoActivity extends AppCompatActivity {
 
         series.setDrawBackground(true);
         series.setBackgroundColor(Color.argb(60,95,226,156));
+
+        GridLabelRenderer gridLabelRenderer = GraficoPeso.getGridLabelRenderer();
+
+        gridLabelRenderer.setVerticalLabelsColor(Color.WHITE);
 
         exqInsert();
 
