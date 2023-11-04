@@ -80,7 +80,7 @@ public class PerfilFragment extends Fragment {
     }
 
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+            super.onViewCreated(view, savedInstanceState);
 
         Button imcCalculatorBtn = view.findViewById(R.id.imcCalculator);
         Button monitoramentoCalBtn = view.findViewById(R.id.monitoramentoCalorias);
