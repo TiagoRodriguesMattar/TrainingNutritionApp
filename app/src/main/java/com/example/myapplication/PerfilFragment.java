@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -60,5 +62,48 @@ public class PerfilFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_perfil, container, false);
+    }
+
+    public void imcDataBtn(View view) {
+        Intent i = new Intent(getActivity(), ImcDataActivity.class);
+        startActivity(i);
+    }
+
+    public void monCalbtn(View view) {
+        Intent i = new Intent(getActivity(), MonitoramentoCaloriasActivity.class);
+        startActivity(i);
+    }
+
+    public void acPesobtn(View view) {
+        Intent i = new Intent(getActivity(), AcompanhamentoPesoActivity.class);
+        startActivity(i);
+    }
+
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        Button imcCalculatorBtn = view.findViewById(R.id.imcCalculator);
+        Button monitoramentoCalBtn = view.findViewById(R.id.monitoramentoCalorias);
+        Button acompanhamentoPeso = view.findViewById(R.id.acompanhamentoPeso);
+        imcCalculatorBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                imcDataBtn(v);
+            }
+        });
+
+        monitoramentoCalBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                monCalbtn(v);
+            }
+        });
+
+        acompanhamentoPeso.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                acPesobtn(v);
+            }
+        });
     }
 }
