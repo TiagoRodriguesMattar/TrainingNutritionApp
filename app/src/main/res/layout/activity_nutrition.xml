@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
+    android:background="@drawable/nutri"
     android:padding="16dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
     tools:context=".NutritionActivity">
@@ -13,7 +14,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:padding="10dp"
-        android:src="@drawable/ic_back_black" />
+        android:src="@drawable/ic_back" />
 
     <TextView
         android:id="@+id/titulo_nutri"
@@ -21,6 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="@string/saude"
+        android:textColor="@android:color/white"
         android:textSize="25sp"
         android:layout_marginBottom="40dp"
         android:gravity="center_vertical"
@@ -32,6 +34,8 @@
         android:layout_below="@+id/titulo_nutri"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textColorHint="@color/white"
         android:hint="Digite seu nome"
         android:inputType="text" />
 
@@ -40,6 +44,11 @@
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#51000000"
         android:text="Enviar" />
 
     <androidx.recyclerview.widget.RecyclerView
