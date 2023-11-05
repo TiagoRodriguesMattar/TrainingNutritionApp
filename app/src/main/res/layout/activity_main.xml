@@ -68,5 +68,17 @@
         android:layout_marginBottom="20dp"
         android:backgroundTint="#51000000"
         android:text="LOGIN" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/cadbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/loginbtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#51000000"
+        android:text="CADASTRO" />
 
 </RelativeLayout>

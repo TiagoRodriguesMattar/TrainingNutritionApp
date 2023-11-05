@@ -22,7 +22,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import org.apache.commons.lang3.text.translate.UnicodeUnescaper;
+//import org.apache.commons.lang3.text.translate.UnicodeUnescaper;
 
 public class NutritionActivity extends AppCompatActivity {
     private RecyclerView nutriRV;
