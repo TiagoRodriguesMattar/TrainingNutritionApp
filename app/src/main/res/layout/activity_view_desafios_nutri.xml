@@ -24,5 +24,10 @@
         android:layout_marginLeft="10dp"
         android:layout_toRightOf="@id/button_back"/>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titulo"
+        android:id="@+id/DesafioNutriReciclerView"/>
 
 </RelativeLayout>
