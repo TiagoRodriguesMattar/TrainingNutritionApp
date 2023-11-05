@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
@@ -14,22 +15,38 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
+
+        <service android:name=".NotificationService" />
+
+        <activity
+            android:name=".NutritionActivity"
+            android:exported="false"
+            android:label="@string/title_activity_nutrition"
+            android:theme="@style/Theme.MyApplication" />
         <activity
             android:name=".VideoPlayerActivity"
-            android:exported="false"
-            android:configChanges="orientation|screenSize|layoutDirection"/>
+            android:configChanges="orientation|screenSize|layoutDirection"
+            android:exported="false" />
+        <activity
+            android:name=".AcompanhamentoPesoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MonitoramentoCaloriasActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ImcDataActivity"
+            android:exported="false" />
         <activity
             android:name=".VideoFilesActivity"
             android:exported="false"
-            android:parentActivityName=".indexActivity"/>
+            android:parentActivityName=".indexActivity" />
         <activity
             android:name=".NewsPageActivity"
             android:exported="false"
-            android:parentActivityName=".indexActivity"/>
+            android:parentActivityName=".indexActivity" />
         <activity
             android:name=".NewsDetailActivity"
             android:exported="false" />
-
         <activity
             android:name=".indexActivity"
             android:exported="false" />

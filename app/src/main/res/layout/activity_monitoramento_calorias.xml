@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MonitoramentoCaloriasActivity"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/caloriasBack"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:padding="10dp"
+        android:src="@drawable/ic_back_black" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Monitoramento de calorias"
+        android:textSize="20sp"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/caloriasBack" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/inputCalGanhas"
+        android:layout_width="match_parent"
+        android:hint="Calorias Ganhas"
+        android:layout_marginRight="170dp"
+        android:layout_height="48dp"
+        android:inputType="number"
+        android:layout_below="@id/caloriasBack"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/inputCalPerdidas"
+        android:layout_width="match_parent"
+        android:inputType="number"
+        android:hint="Calorias Perdidas"
+        android:layout_marginRight="170dp"
+        android:layout_height="48dp"
+        android:layout_below="@id/inputCalGanhas"/>
+
+    <Button
+        android:id="@+id/InserirCal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/caloriasBack"
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="250dp"
+        android:text="Inserir" />
+
+    <com.jjoe64.graphview.GraphView
+        android:id="@+id/GraficoCalorias"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/inputCalPerdidas" />
+
+
+
+</RelativeLayout>

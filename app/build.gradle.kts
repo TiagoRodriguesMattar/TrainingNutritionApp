@@ -35,9 +35,13 @@ android {
 }
 
 dependencies {
+    implementation ("org.apache.commons:commons-lang3:3.13.0")
+    implementation ("com.fasterxml.jackson.core:jackson-databind:2.13.0")
     implementation ("com.android.support:multidex:1.0.3")
     implementation ("com.google.android.exoplayer:exoplayer:2.14.1")
     implementation ("com.github.bumptech.glide:glide:4.16.0")
+    implementation("androidx.navigation:navigation-fragment:2.5.3")
+    implementation("androidx.navigation:navigation-ui:2.5.3")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
     implementation ("com.squareup.okhttp3:okhttp:4.9.1")
     implementation("com.jzhangdeveloper.newsapi:newsapi-java:1.0.0")
@@ -47,6 +51,7 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation ("com.jjoe64:graphview:4.2.2")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
