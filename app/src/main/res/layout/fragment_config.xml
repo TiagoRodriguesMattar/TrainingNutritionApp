@@ -43,4 +43,62 @@
         android:layout_marginLeft="15dp"
         android:layout_below="@id/config_ic"
         android:theme="@style/SwitchCompatTheme" />
+    <TextView
+        android:id="@+id/permission_remedios"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:textSize="18dp"
+        android:layout_toRightOf="@id/switch_permission"
+        android:layout_below="@id/permission"
+        android:text="Permitir Notificações de Remedios" />
+
+    <Switch
+        android:id="@+id/switch_permission_remedios"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_below="@id/permission"
+        android:theme="@style/SwitchCompatTheme" />
+
+    <Button
+        android:id="@+id/button_remedios"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="33dp"
+        android:layout_below="@id/nome_remedio"
+        android:text="Adiconar remedios"
+        android:theme="@style/SwitchCompatTheme" />
+    <Button
+        android:id="@+id/button_remove_remedios"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="33dp"
+        android:layout_below="@id/button_remedios"
+        android:text="Remover remedio"
+        android:theme="@style/SwitchCompatTheme" />
+    <EditText
+        android:id="@+id/nome_remedio"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="33dp"
+        android:layout_below="@id/switch_permission_remedios"
+        android:hint="Nome do remedio"
+        android:theme="@style/SwitchCompatTheme" />
+
+    <NumberPicker
+        android:id="@+id/numberpicker"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/switch_permission_remedios"
+        android:layout_marginLeft="345dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="0dp"
+        android:hint="Insira seu texto aqui" />
+
+
 </RelativeLayout>
