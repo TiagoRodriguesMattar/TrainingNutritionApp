@@ -29,6 +29,7 @@ public class MyAdapterDesafioNutri extends RecyclerView.Adapter<MyViewHolderDesa
     public void onBindViewHolder(@NonNull MyViewHolderDesafioNutri holder, int position) {
         holder.title.setText(items.get(position).getTitle());
         holder.image.setImageResource(items.get(position).getImage());
+        holder.sub.setText(items.get(position).getSub());
     }
 
     @Override
