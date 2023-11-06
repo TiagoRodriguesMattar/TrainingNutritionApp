@@ -101,12 +101,20 @@ public class ConfigFragment extends Fragment {
                     String texto = nome_remedio.getText().toString();
                     Log.d("CREATION","Nome: " + texto);
                     Log.d("CREATION","Nome: " + nomes.get(i));
-                    if(nomes.contains(texto)){
-                        nomes.remove(i);
-                        if(timers.size() >= i){
-                            timers.remove(i);
+                    try{
+                        if(nomes.contains(texto)){
+                            nomes.remove(i);
+                            if(!timers.isEmpty()){
+                                if(timers.size() >= i){
+                                    timers.remove(i);
+                                }
+                            }
                         }
                     }
+                    catch(Exception e){
+                        Log.d("CREATION","Erro: " + e);
+                    }
+
                 }
                 for(String nome : nomes) {
                     Log.d("CREATION","Nomes: " + nome);
