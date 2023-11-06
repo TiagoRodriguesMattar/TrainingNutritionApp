@@ -83,7 +83,7 @@ public class ConfigFragment extends Fragment {
         numberPickerNumber = view.findViewById(R.id.numberpicker);
         nome_remedio = view.findViewById(R.id.nome_remedio);
         numberPickerNumber.setMaxValue(24);
-        numberPickerNumber.setMinValue(0);
+        numberPickerNumber.setMinValue(1);
         add_remedios.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
