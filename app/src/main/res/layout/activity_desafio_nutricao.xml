@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/background5"
     android:padding="16dp">
 
     <ImageView
@@ -13,7 +13,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:padding="10dp"
-        android:src="@drawable/ic_back"/>
+        android:src="@drawable/ic_back_black"/>
 
     <TextView
         android:id="@+id/titulo"
@@ -22,7 +22,6 @@
         android:text="Desafios de Nutrição"
         android:textSize="25sp"
         android:gravity="center_vertical"
-        android:textColor="@color/white"
         android:layout_marginLeft="10dp"
         android:layout_toRightOf="@id/button_back"/>
 
@@ -33,7 +32,6 @@
         android:textSize="25sp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="20dp"
-        android:textColor="@color/white"
         android:text="Aviso Importante!"
         android:layout_below="@id/titulo"
         android:textStyle="bold"/>
@@ -42,7 +40,6 @@
         android:id="@+id/msg_aviso"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
         android:text="Os desafios de nutrição oferecidos são sugestões para hábitos saudáveis. Lembre-se, a nutrição é individual. Recomendamos consultar um médico ou nutricionista para orientação personalizada. Sua saúde é primordial, e estamos aqui para apoiar suas escolhas alimentares com segurança. Consulte um especialista para direcionamento específico."
         android:textSize="22sp"
         android:gravity="center_vertical"
@@ -55,7 +52,6 @@
         android:layout_height="wrap_content"
         android:text="Li e estou ciente"
         android:textSize="25dp"
-        android:textColor="@color/white"
         android:layout_marginTop="30dp"
         android:layout_below="@id/msg_aviso"/>
 
