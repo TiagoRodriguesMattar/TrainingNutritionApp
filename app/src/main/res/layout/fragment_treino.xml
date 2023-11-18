@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/treino_bg1"
     tools:context=".TreinoFragment">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/treinoFragment"
-        android:textSize="26dp"
-        android:layout_gravity="center"
-        android:textColor="@android:color/white"/>
 
     <Button
         android:id="@+id/exerciseLibrary"
@@ -29,4 +22,19 @@
         android:textSize="20dp"
         android:textColor="@android:color/white" />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/DesafioTreino"
+        android:layout_width="365dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:onClick="desafioTreino"
+        android:layout_below="@+id/exerciseLibrary"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#9A000000"
+        android:text="Desafios de Treino"
+        android:textSize="20dp"
+        android:textColor="@android:color/white" />
+
+</RelativeLayout>

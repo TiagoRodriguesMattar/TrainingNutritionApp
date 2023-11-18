@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/ImageDNV"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="15dp">
+    </ImageView>
+
+
+    <TextView
+        android:id="@+id/TitleDNV"
+        android:layout_below="@+id/ImageDNV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        android:padding="4dp"
+        android:text="Title"
+        android:textSize="28dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+    <TextView
+        android:id="@+id/SubDNV"
+        android:layout_width="match_parent"
+        android:layout_below="@id/TitleDNV"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="15dp"
+        android:padding="4dp"
+        android:text="Subtitle"
+        android:textSize="20dp"
+        android:textColor="@color/black" />
+    <TextView
+        android:id="@+id/DurationText"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/SubDNV"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="15dp"
+        android:padding="4dp"
+        android:text="Duração do desafio:"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/DurationDNV"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/SubDNV"
+        android:layout_toRightOf="@id/DurationText"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="15dp"
+        android:padding="4dp"
+        android:text="Duration"
+        android:textSize="20dp"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/LevelText"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/DurationDNV"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="15dp"
+        android:padding="4dp"
+        android:text="Nível do desafio:"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/LevelDNV"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/DurationDNV"
+        android:layout_toRightOf="@id/LevelText"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="15dp"
+        android:padding="4dp"
+        android:text="Level"
+        android:textSize="20dp"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/MuscleGroupsText"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/RestTimeDNV"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        android:padding="4dp"
+        android:text="Músculos:"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/MuscleGroupsDNV"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/RestTimeDNV"
+        android:layout_toRightOf="@id/MuscleGroupsText"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="15dp"
+        android:padding="4dp"
+        android:text="Muscle Groups"
+        android:textSize="20dp"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/RestTimeText"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/LevelDNV"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="15dp"
+        android:padding="4dp"
+        android:text="Tempo de descanso:"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/RestTimeDNV"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/LevelDNV"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/RestTimeText"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="15dp"
+        android:padding="4dp"
+        android:text="Rest Time"
+        android:textSize="20dp"
+        android:textColor="@color/black" />
+
+</RelativeLayout>

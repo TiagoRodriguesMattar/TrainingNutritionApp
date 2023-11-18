@@ -73,14 +73,27 @@ public class TreinoFragment extends Fragment {
         //startActivity(i);
     }
 
+    public void desafioTreino(View view) {
+        Intent i = new Intent(getActivity(), DesafioTreinoActivity.class);
+        startActivity(i);
+    }
+
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         Button exerciseLibraryButton = view.findViewById(R.id.exerciseLibrary);
+        Button desafioTreinoButton = view.findViewById(R.id.DesafioTreino);
         exerciseLibraryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 exerciseLibraryBtn(v);
+            }
+        });
+
+        desafioTreinoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                desafioTreino(v);
             }
         });
     }
