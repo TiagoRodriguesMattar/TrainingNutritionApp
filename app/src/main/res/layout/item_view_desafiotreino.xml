@@ -8,7 +8,8 @@
         android:layout_height="200dp"
         android:id="@+id/ImageDNV"
         android:scaleType="centerCrop"
-        android:layout_marginTop="15dp"></ImageView>
+        android:layout_marginTop="15dp">
+    </ImageView>
 
 
     <TextView
