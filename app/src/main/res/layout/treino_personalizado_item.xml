@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="4dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/NomeEx"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:padding="4dp"
+        android:text="Title"
+        android:textSize="20dp"
+        android:textStyle="bold">
+
+    </TextView>
+    <TextView
+        android:id="@+id/NumSeries"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/NomeEx"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="4dp"
+        android:padding="4dp"
+        android:text="Sub Description"
+        android:textSize="18dp">
+    </TextView>
+
+    <TextView
+        android:id="@+id/NumRepet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/NumSeries"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="4dp"
+        android:padding="4dp"
+        android:text="Sub Description"
+        android:textSize="18dp"></TextView>
+</androidx.cardview.widget.CardView>

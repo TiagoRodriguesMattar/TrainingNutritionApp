@@ -14,12 +14,15 @@ public class TreinosPersonalizadosArray {
         return exercicio;
     }
 
-    public int getSeries() {
-        return series;
+    public String getSeries() {
+
+        String s =String.valueOf(series);
+        return s;
     }
 
-    public int getRepeticoes() {
-        return repeticoes;
+    public String getRepeticoes() {
+        String s =String.valueOf(repeticoes);
+        return s;
     }
 
     public void setExercicio(String exercicio) {
