@@ -12,6 +12,27 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_news_deatil">NewsDeatilActivity</string>
     <string name="artigos">Artigos De Saúde</string>
+    <string-array name="opcoes_array">
+        <item> </item>
+        <item>Flexão</item>
+        <item>Flexão Diamante</item>
+        <item>Flexão Aberta</item>
+        <item>Flexão Pseudo</item>
+        <item>Flexão Ombro</item>
+        <item>Flexão Explosiva</item>
+        <item>Extensão De Tríceps</item>
+        <item>Skull Crunches</item>
+        <item>Agaquamento</item>
+        <item>Rosca Direta</item>
+        <item>Rosca Martelo</item>
+        <item>Panturrilha Em Pé</item>
+        <item>Abdominal Normal</item>
+        <item>Abdominal Infra</item>
+        <item>Barra Fixa</item>
+        <item>Barra Fixa Fechada</item>
+        <item>Barra Fixa Aberta</item>
+        <item>Barra Fixa Supinada</item>
+    </string-array>
     <string name="saude">Tabela Nutricional</string>
     <string name="config">Configuração</string>
     <string name="config2">Configurações</string>
@@ -21,5 +42,4 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
 </resources>
