@@ -7,11 +7,39 @@
     android:background="@color/white"
     tools:context=".TreinoPersonalizadoActivity">
 
+    <ImageView
+        android:id="@+id/video_volta"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:padding="10dp"
+        android:layout_marginBottom="30dp"
+        android:src="@drawable/ic_back_black" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Treino Personalizado"
+        android:textSize="25sp"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/video_volta" />
+    <TextView
+        android:id="@+id/exerciseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Exercício:"
+        android:layout_below="@+id/video_volta"
+        android:layout_marginRight="20dp"
+        android:textSize="20dp">
+    </TextView>
 
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/video_volta"
+        android:layout_toRightOf="@+id/exerciseText"
+        tools:ignore="TouchTargetSizeCheck" />
     <NumberPicker
         android:id="@+id/numberpicker_repet"
         android:layout_width="50dp"
@@ -25,7 +53,7 @@
         android:id="@+id/texto_repet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Numero de repetições:"
+        android:text=" Número de repetições:"
         android:layout_below="@id/spinner"
         android:layout_marginTop="40dp"
         android:textSize="20dp">
@@ -34,7 +62,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Numero de séries:"
+        android:text=" Número de séries:"
         android:layout_below="@id/texto_repet"
         android:layout_marginTop="50dp"
         android:textSize="20dp">
@@ -47,6 +75,7 @@
         android:layout_marginLeft="220dp"
         android:layout_marginTop="30dp"
         android:layout_marginRight="0dp"
+        android:layout_marginBottom="15dp"
         android:hint="Insira seu texto aqui" />
 
     <Button
@@ -66,6 +95,7 @@
         android:backgroundTint="#111111"
         android:layout_height="wrap_content"
         android:layout_below="@+id/buttonAdd"
+        android:layout_marginBottom="15dp"
         android:text="Mostrar treino">
 
     </Button>
