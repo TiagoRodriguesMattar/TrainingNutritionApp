@@ -4,12 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.NumberPicker;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -26,6 +28,7 @@ public class TreinoPersonalizadoActivity extends AppCompatActivity{
     private String itemSelecionado;
     private ArrayList<TreinosPersonalizadosArray> arrayTreinos;
     private int valorNumberPickerRepet,valorNumberPickerSeries;
+    ImageView videoBack2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,7 +94,12 @@ public class TreinoPersonalizadoActivity extends AppCompatActivity{
                 // Ação quando nada é selecionado
             }
         });
+
+        videoBack2 = findViewById(R.id.video_volta);
+        videoBack2.setOnClickListener(this :: teste);
     }
-
-
+    private void teste(View view) {
+        Intent intent = new Intent(this, indexActivity.class);
+        startActivity(intent);
+    }
 }
