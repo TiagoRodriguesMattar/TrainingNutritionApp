@@ -8,4 +8,6 @@
     <color name="dark_blue">#20205C</color>
     <color name="grey">#808080</color>
     <color name="lime_green">#32CD32</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
 </resources>

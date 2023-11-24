@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.myapplication.databinding.ActivityIndexBinding;
 import com.example.myapplication.databinding.ActivityMainBinding;
@@ -20,8 +21,8 @@ public class indexActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         replaceFragment(new TreinoFragment());
 
-        binding.bottomNavigationView.setOnItemSelectedListener(item -> {
 
+        binding.bottomNavigationView.setOnItemSelectedListener(item -> {
             if (item.getItemId() == R.id.treino) {
                 replaceFragment(new TreinoFragment());
             } else if (item.getItemId() == R.id.nutricao) {
@@ -30,8 +31,9 @@ public class indexActivity extends AppCompatActivity {
                 replaceFragment(new PerfilFragment());
             } else if (item.getItemId() == R.id.config) {
                 replaceFragment(new ConfigFragment());
+            } else if(item.getItemId() == R.id.mapa) {
+                replaceFragment(new GMapFragment());
             }
-
             return true;
         });
     }

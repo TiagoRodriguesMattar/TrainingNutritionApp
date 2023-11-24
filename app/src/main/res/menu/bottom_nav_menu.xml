@@ -25,4 +25,11 @@
         android:layout_height="wrap_content"
         android:title="Configuração"
         android:icon="@drawable/ic_settings"/>
+    <item
+        android:id="@+id/mapa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="Mapa"
+        android:icon="@drawable/ic_settings"
+        />
 </menu>
