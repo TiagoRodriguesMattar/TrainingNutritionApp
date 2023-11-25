@@ -62,7 +62,7 @@ import java.util.Locale;
  * create an instance of this fragment.
  */
 public class GMapFragment extends Fragment {
-    private List<Lugares> places = new ArrayList<>();
+
     private List<Place.Field> placeFields = Arrays.asList(Place.Field.NAME, Place.Field.ADDRESS, Place.Field.TYPES);
     private AutocompleteSessionToken token;
     private static final int REQUEST_CODE = 100;
@@ -108,8 +108,7 @@ public class GMapFragment extends Fragment {
         }
         Context context = getContext();
 
-        places.add(new Lugares("Google", new LatLng(-23.5868031, -46.6843406), "Av. Brg. Faria Lima, 3477 - 18º Andar - Itaim Bibi, São Paulo - SP", 4.8f));
-        places.add(new Lugares("Parque", new LatLng(-23.5899619, -46.66747), "Av. República do Líbano, 1111 - Ibirapuera, São Paulo - SP", 4.9f));
+
 
     }
 
@@ -137,6 +136,9 @@ public class GMapFragment extends Fragment {
             requestLocationPermission();
         }
 
+    }
+
+    private void mapa(List<Lugares> places) {
         Context context = getContext();
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map_fragment);
         if (mapFragment != null) {
@@ -144,14 +146,17 @@ public class GMapFragment extends Fragment {
                 @Override
                 public void onMapReady(GoogleMap googleMap) {
                     googleMap.setInfoWindowAdapter(new MarkerInfoAdapter(context));
-                    addMarkers(googleMap, context);
+                    addMarkers(googleMap, context,places);
 
                     googleMap.setOnMapLoadedCallback(new GoogleMap.OnMapLoadedCallback() {
                         @Override
                         public void onMapLoaded() {
                             LatLngBounds.Builder bounds = LatLngBounds.builder();
-
+                            if(places.isEmpty()) {
+                                Log.i("Places","List places vazaia");
+                            }
                             for (Lugares place : places) {
+                                Log.d("CREATION","Place: " + place.getName());
                                 bounds.include(place.getLatLng());
                             }
 
@@ -163,10 +168,9 @@ public class GMapFragment extends Fragment {
         } else {
             Log.d("CREATION", "Deu merda");
         }
-
     }
 
-    private void addMarkers(GoogleMap googleMap, Context context) {
+    private void addMarkers(GoogleMap googleMap, Context context, List<Lugares> places) {
         for (Lugares lugar : places) {
             MarkerOptions markerOptions = new MarkerOptions()
                     .title(lugar.getName())
@@ -204,27 +208,14 @@ public class GMapFragment extends Fragment {
     }
 
     private void fetchLastLocation() {
-        double latitude = -22.9068;
-        double longitude = -47.0616;
+        List<Lugares> places = new ArrayList<>();
         //LatLng location = new LatLng(latitude, longitude);
         Log.d("CREATION", "Tinha permissao");
         Context context = getContext();
         Places.initialize(context, "AIzaSyCOWtv5Yv1lldby8jGMTbldY-rz2lerg5g");
         token = AutocompleteSessionToken.newInstance();
 
-// Crie um cliente do Places
         PlacesClient placesClient = Places.createClient(context);
-
-// Defina o tipo de lugar para academias
-        String placeType = "gym"; // Isso define para academias
-
-// Defina o raio de busca em metros
-        int radius = 5000; // Por exemplo, 5000 metros (5 km)
-
-// Crie uma solicitação de pesquisa
-
-
-        //
         FindCurrentPlaceRequest request = FindCurrentPlaceRequest.builder(placeFields)
                 .build();
 
@@ -237,17 +228,42 @@ public class GMapFragment extends Fragment {
 
         placeResponse.addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
+
                 FindCurrentPlaceResponse response = task.getResult();
                 List<PlaceLikelihood> placesLikelihoodList = response.getPlaceLikelihoods();
 
                 for (PlaceLikelihood placeLikelihood : placesLikelihoodList) {
+                    places.add(new Lugares("Google",new LatLng(-22.9626987,-47.0240473),"Luís Caetano, 193 - Nações, Valinhos - SP, 13271-785",4.8f));
                     com.google.android.libraries.places.api.model.Place place = placeLikelihood.getPlace();
-                    Log.i("Places", "Place: " + placeLikelihood.getPlace().getTypes() + ", name: " + placeLikelihood.getPlace().getName());
+                    if(place.getLatLng() == null){
+                        Log.d("Places" ,"Vazio");
+                    }
+                    else{
+                        Log.d("Places" ,"Lugar: " + Double.toString(place.getLatLng().latitude));
+                    }
+                    //
+                       for(int i=0;i<place.getTypes().size();i++){
+                                   places.add(new Lugares("Google", new LatLng(-22.9626987, -47.0240473), "Luís Caetano, 193 - Nações, Valinhos - SP, 13271-785", 4.8f));
+                                   try {
+                                       places.add(new Lugares(
+                                               places.get(i).getName(),
+                                               new LatLng(places.get(i).getLatLng().latitude, places.get(i).getLatLng().longitude),
+                                               places.get(i).getAddress(),
+                                               places.get(i).getRating()
+                                       ));
+                                   }
+                                   catch (Exception e){
+                                       Log.e("Places","Erro: " + e);
+                                   }
+                    }
+
                     // Aqui você pode usar as informações do lugar, como nome, localização, etc.
                 }
+                mapa(places);
             } else {
                 Log.e("Places", "Failed to get places: " + task.getException());
             }
+
         }); //
 
         /*
@@ -295,9 +311,9 @@ class Lugares {
     private String name;
     private LatLng latLng;
     private String address;
-    private float rating;
+    private double rating;
 
-    public Lugares(String name, LatLng latLng, String address, float rating) {
+    public Lugares(String name, LatLng latLng, String address, double rating) {
         this.name = name;
         this.latLng = latLng;
         this.address = address;
@@ -316,7 +332,7 @@ class Lugares {
         return address;
     }
 
-    public float getRating() {
+    public double getRating() {
         return rating;
     }
 }
