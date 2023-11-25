@@ -63,7 +63,7 @@ import java.util.Locale;
  */
 public class GMapFragment extends Fragment {
 
-    private List<Place.Field> placeFields = Arrays.asList(Place.Field.NAME, Place.Field.ADDRESS, Place.Field.TYPES);
+    private List<Place.Field> placeFields = Arrays.asList(Place.Field.NAME, Place.Field.ADDRESS, Place.Field.TYPES,Place.Field.LAT_LNG,Place.Field.RATING);
     private AutocompleteSessionToken token;
     private static final int REQUEST_CODE = 100;
     private FusedLocationProviderClient fusedLocationProviderClient;
@@ -240,23 +240,24 @@ public class GMapFragment extends Fragment {
                     }
                     else{
                         Log.d("Places" ,"Lugar: " + Double.toString(place.getLatLng().latitude));
+
                     }
                     //
-                       for(int i=0;i<place.getTypes().size();i++){
-                                   places.add(new Lugares("Google", new LatLng(-22.9626987, -47.0240473), "Luís Caetano, 193 - Nações, Valinhos - SP, 13271-785", 4.8f));
-                                   try {
-                                       places.add(new Lugares(
-                                               places.get(i).getName(),
-                                               new LatLng(places.get(i).getLatLng().latitude, places.get(i).getLatLng().longitude),
-                                               places.get(i).getAddress(),
-                                               places.get(i).getRating()
-                                       ));
-                                   }
-                                   catch (Exception e){
-                                       Log.e("Places","Erro: " + e);
-                                   }
-                    }
-
+                       for(int i=0;i<place.getTypes().size();i++) {
+                           if (place.getTypes().get(i).toString() == "CAR_WASH") {
+                               //places.add(new Lugares("Google", new LatLng(-22.9626987, -47.0240473), "Luís Caetano, 193 - Nações, Valinhos - SP, 13271-785", 4.8f));
+                               try {
+                                   places.add(new Lugares(
+                                           place.getName(),
+                                           place.getLatLng(),
+                                           place.getAddress(),
+                                           4.8f
+                                   ));
+                               } catch (Exception e) {
+                                   Log.e("Places", "Erro: " + e);
+                               }
+                           }
+                       }
                     // Aqui você pode usar as informações do lugar, como nome, localização, etc.
                 }
                 mapa(places);
