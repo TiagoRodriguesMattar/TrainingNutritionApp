@@ -36,6 +36,8 @@ android {
 }
 
 dependencies {
+    implementation ("com.google.android.libraries.places:places:2.5.0")
+    implementation ("com.google.android.gms:play-services-location:18.0.0")
     implementation ("com.google.android.gms:play-services-maps:18.2.0")
     implementation ("org.apache.commons:commons-lang3:3.13.0")
     implementation ("com.fasterxml.jackson.core:jackson-databind:2.13.0")

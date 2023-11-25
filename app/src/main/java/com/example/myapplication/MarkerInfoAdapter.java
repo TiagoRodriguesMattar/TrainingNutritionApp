@@ -23,8 +23,8 @@ public class MarkerInfoAdapter implements GoogleMap.InfoWindowAdapter {
     @Override
     public View getInfoContents(Marker marker) {
         Object tag = marker.getTag();
-        if (tag instanceof Place) {
-            Place place = (Place) tag;
+        if (tag instanceof Lugares) {
+            Lugares place = (Lugares) tag;
 
             View view = LayoutInflater.from(context).inflate(R.layout.custom_marker_info, null);
 
