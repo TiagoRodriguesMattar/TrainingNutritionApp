@@ -244,7 +244,7 @@ public class GMapFragment extends Fragment {
                     }
                     //
                        for(int i=0;i<place.getTypes().size();i++) {
-                           if (place.getTypes().get(i).toString() == "CAR_WASH") {
+                           if (place.getTypes().get(i).toString() == "CAR_WASH" || place.getTypes().get(i).toString() == "GYM") {
                                //places.add(new Lugares("Google", new LatLng(-22.9626987, -47.0240473), "Luís Caetano, 193 - Nações, Valinhos - SP, 13271-785", 4.8f));
                                try {
                                    places.add(new Lugares(
