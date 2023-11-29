@@ -19,6 +19,10 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
+    public void TrainingActivity() {
+        Intent i = new Intent(this, indexActivity.class);
+        startActivity(i);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,42 +32,51 @@ public class MainActivity extends AppCompatActivity {
         EditText username = findViewById(R.id.username);
         EditText password = findViewById(R.id.password);
 
+
+
         MaterialButton loginbtn = (MaterialButton) findViewById(R.id.loginbtn);
         MaterialButton cadbtn = (MaterialButton) findViewById(R.id.cadbtn);
 
         //admin and admin
         loginbtn.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 String email = username.getText().toString();
                 String senha = password.getText().toString();
-                Retrofit retrofit = new Retrofit.Builder()
-                        .baseUrl("http://10.0.2.2:3000/") // Substitua pela URL base correta
-                        .addConverterFactory(GsonConverterFactory.create())
-                        .build();
 
-                RetrofitService retrofitService = retrofit.create(RetrofitService.class);
+                    if (email.equals("admin") && senha.equals("admin")) {
+                        TrainingActivity();
+                    }
+                    else{
+                        Retrofit retrofit = new Retrofit.Builder()
+                                .baseUrl("http://10.0.2.2:3000/")
+                                .addConverterFactory(GsonConverterFactory.create())
+                                .build();
+
+                        RetrofitService retrofitService = retrofit.create(RetrofitService.class);
 
 
-                User usuario = new User(email, senha);
-                Call<Void> call = retrofitService.getLoginRes(usuario);
+                        User usuario = new User(email, senha);
+                        Call<Void> call = retrofitService.getLoginRes(usuario);
+                        call.enqueue(new Callback<Void>() {
+                            @Override
+                            public void onResponse(Call<Void> call, Response<Void> response) {
+                                if (response.isSuccessful()) {
+                                    Toast.makeText(MainActivity.this, "LOGIN SUCCESSFUL", Toast.LENGTH_SHORT).show();
+                                    TrainingActivity();
+                                } else {
+                                    // Trate falhas na solicitação
+                                }
+                            }
 
-                call.enqueue(new Callback<Void>() {
-                    @Override
-                    public void onResponse(Call<Void> call, Response<Void> response) {
-                        if (response.isSuccessful()) {
-                            Toast.makeText(MainActivity.this,"LOGIN SUCCESSFUL",Toast.LENGTH_SHORT).show();
-                            TrainingActivity();
-                        } else {
-                            // Trate falhas na solicitação
+                            @Override
+                            public void onFailure(Call<Void> call, Throwable t) {
+                                Log.d("CREATION", "Erro: " + t);
+                            }
+                        });
                         }
-                    }
-                    @Override
-                    public void onFailure(Call<Void> call, Throwable t) {
-                        Log.d("CREATION","Erro: " + t);
-                    }
-                });
-            }
+                                    }
         });
 
         cadbtn.setOnClickListener(new View.OnClickListener() {
@@ -102,8 +115,5 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    public void TrainingActivity() {
-        Intent i = new Intent(this, indexActivity.class);
-        startActivity(i);
-    }
+
 }

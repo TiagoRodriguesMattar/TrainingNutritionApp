@@ -141,7 +141,7 @@ public class GMapFragment extends Fragment {
     private void mapa(List<Lugares> places) {
         Context context = getContext();
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map_fragment);
-        if (mapFragment != null) {
+        if (mapFragment != null && !places.isEmpty()) {
             mapFragment.getMapAsync(new OnMapReadyCallback() {
                 @Override
                 public void onMapReady(GoogleMap googleMap) {
@@ -226,23 +226,22 @@ public class GMapFragment extends Fragment {
         }
         Task<FindCurrentPlaceResponse> placeResponse = placesClient.findCurrentPlace(request);
 
+
         placeResponse.addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
-
                 FindCurrentPlaceResponse response = task.getResult();
                 List<PlaceLikelihood> placesLikelihoodList = response.getPlaceLikelihoods();
+                com.google.android.libraries.places.api.model.Place location = placesLikelihoodList.get(0).getPlace();
+                places.add(new Lugares(
+                        location.getName(),
+                        location.getLatLng(),
+                        location.getAddress(),
+                        4.8f
+                ));
 
                 for (PlaceLikelihood placeLikelihood : placesLikelihoodList) {
-                    places.add(new Lugares("Google",new LatLng(-22.9626987,-47.0240473),"Luís Caetano, 193 - Nações, Valinhos - SP, 13271-785",4.8f));
+                    //places.add(new Lugares("Google",new LatLng(-22.9626987,-47.0240473),"Luís Caetano, 193 - Nações, Valinhos - SP, 13271-785",4.8f));
                     com.google.android.libraries.places.api.model.Place place = placeLikelihood.getPlace();
-                    if(place.getLatLng() == null){
-                        Log.d("Places" ,"Vazio");
-                    }
-                    else{
-                        Log.d("Places" ,"Lugar: " + Double.toString(place.getLatLng().latitude));
-
-                    }
-                    //
                        for(int i=0;i<place.getTypes().size();i++) {
                            if (place.getTypes().get(i).toString() == "CAR_WASH" || place.getTypes().get(i).toString() == "GYM") {
                                //places.add(new Lugares("Google", new LatLng(-22.9626987, -47.0240473), "Luís Caetano, 193 - Nações, Valinhos - SP, 13271-785", 4.8f));
@@ -257,9 +256,12 @@ public class GMapFragment extends Fragment {
                                    Log.e("Places", "Erro: " + e);
                                }
                            }
+
                        }
+
                     // Aqui você pode usar as informações do lugar, como nome, localização, etc.
                 }
+
                 mapa(places);
             } else {
                 Log.e("Places", "Failed to get places: " + task.getException());
