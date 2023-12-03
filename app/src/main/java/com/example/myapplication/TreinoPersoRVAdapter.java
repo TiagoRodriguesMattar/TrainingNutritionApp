@@ -14,10 +14,10 @@ import java.util.ArrayList;
 
 public class TreinoPersoRVAdapter extends RecyclerView.Adapter<TreinoPersoRVAdapter.ViewHolder>{
 
-    private ArrayList<TreinosPersonalizadosArray> Treino;
+    private ArrayList<ExAdapter> Treino;
     private Context context;
 
-    public TreinoPersoRVAdapter(ArrayList<TreinosPersonalizadosArray> treino, Context context) {
+    public TreinoPersoRVAdapter(ArrayList<ExAdapter> treino, Context context) {
         this.Treino = treino;
         this.context = context;
     }
@@ -31,8 +31,8 @@ public class TreinoPersoRVAdapter extends RecyclerView.Adapter<TreinoPersoRVAdap
 
     @Override
     public void onBindViewHolder(@NonNull TreinoPersoRVAdapter.ViewHolder holder, int position) {
-        TreinosPersonalizadosArray treinos = Treino.get(position);
-        holder.Nome.setText(treinos.getExercicio());
+        ExAdapter treinos = Treino.get(position);
+        holder.Nome.setText(treinos.getNome());
         holder.numSerie.setText(treinos.getSeries());
         holder.numRepet.setText(treinos.getRepeticoes());
     }

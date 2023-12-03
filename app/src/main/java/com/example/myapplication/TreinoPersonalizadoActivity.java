@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,6 +16,13 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class TreinoPersonalizadoActivity extends AppCompatActivity{
@@ -24,10 +32,13 @@ public class TreinoPersonalizadoActivity extends AppCompatActivity{
     private NumberPicker numberPickerNumber_repet;
     private NumberPicker numberPickerNumber_series;
     private String itemSelecionado;
+    private ArrayList<ExAdapter> exerciciosAdapter;
+    private ArrayList<Exercicio> exercicios = new ArrayList<>();
     private ArrayList<TreinosPersonalizadosArray> arrayTreinos;
     private int valorNumberPickerRepet,valorNumberPickerSeries;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_treino_personalizado);
         Spinner spinner = findViewById(R.id.spinner);
@@ -39,9 +50,10 @@ public class TreinoPersonalizadoActivity extends AppCompatActivity{
         numberPickerNumber_series.setMinValue(1);
 
         arrayTreinos = new ArrayList<>();
+        exerciciosAdapter = new ArrayList<>();
 
         TreinoRV = findViewById(R.id.treinoRV);
-        treinoPersoRVAdapter = new TreinoPersoRVAdapter(arrayTreinos,this);
+        treinoPersoRVAdapter = new TreinoPersoRVAdapter(exerciciosAdapter,this);
         TreinoRV.setLayoutManager(new LinearLayoutManager(this));
         TreinoRV.setAdapter(treinoPersoRVAdapter);
 
@@ -51,6 +63,7 @@ public class TreinoPersonalizadoActivity extends AppCompatActivity{
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         Button addTreino = findViewById(R.id.buttonAdd);
+
         addTreino.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,7 +74,6 @@ public class TreinoPersonalizadoActivity extends AppCompatActivity{
                 Log.d("CREATION","Exercicio: " + itemSelecionado);
                 try{
                     arrayTreinos.add(new TreinosPersonalizadosArray(itemSelecionado,valorNumberPickerSeries,valorNumberPickerRepet));
-
                 }
                 catch(Exception e){
                     Log.d("CREATION","Erro: " + e);
@@ -76,7 +88,52 @@ public class TreinoPersonalizadoActivity extends AppCompatActivity{
         showTreino.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                treinoPersoRVAdapter.notifyDataSetChanged();
+                SharedPreferences preferences = getSharedPreferences("User_Key", MODE_PRIVATE);
+                String user = preferences.getString("User", "");
+
+                Retrofit retrofit = new Retrofit.Builder()
+                        .baseUrl("http://10.0.2.2:3000/")
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build();
+
+                RetrofitService retrofitService = retrofit.create(RetrofitService.class);
+                Call<ArrayList<Exercicio>> call;
+                call = retrofitService.getTreino(user);
+
+                call.enqueue(new Callback<ArrayList<Exercicio>>() {
+                    @Override
+                    public void onResponse(Call<ArrayList<Exercicio>> call, Response<ArrayList<Exercicio>> response) {
+                        Log.d("CREATION","Deu certo api");
+
+                            exerciciosAdapter.clear();
+                            ArrayList<Exercicio> exe = response.body();
+
+                            for (Exercicio exercicio : exe) {
+
+                                String nomeExercicio = exercicio.getNome();
+                                int repeticoes = exercicio.getRepeticoes();
+                                int series = exercicio.getSeries();
+                                exerciciosAdapter.add(new ExAdapter(exercicio));
+                                //Log.d("CREATION",nomeExercicio + " " + series + " " + repeticoes);
+                                // Faça o que deseja com cada objeto Exercicio aqui
+                            }
+
+                        try{
+                            treinoPersoRVAdapter.notifyDataSetChanged();
+                        } catch (Exception e){
+
+                            Log.e("CREATION", "Erro: " + e);
+                        }
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<ArrayList<Exercicio>> call, Throwable t) {
+                        Log.d("CREATION","Deu merda");
+                        Log.e("API Failure", "Erro na chamada da API: " + t.getMessage());
+                    }
+                });
+
             }
         }));
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -89,6 +146,57 @@ public class TreinoPersonalizadoActivity extends AppCompatActivity{
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 // Ação quando nada é selecionado
+            }
+        });
+        Button saveTreino = findViewById(R.id.saveTreino);
+        saveTreino.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!arrayTreinos.isEmpty()) {
+                    try {
+
+                        Retrofit retrofit = new Retrofit.Builder()
+                                .baseUrl("http://10.0.2.2:3000/") // Substitua pela URL base correta
+                                .addConverterFactory(GsonConverterFactory.create())
+                                .build();
+
+                        RetrofitService retrofitService = retrofit.create(RetrofitService.class);
+
+                        SharedPreferences preferences = getSharedPreferences("User_Key", MODE_PRIVATE);
+                        String user = preferences.getString("User", "");
+
+                        for (int i = 0; i < arrayTreinos.size(); i++) {
+                            Exercicio exercicio = new Exercicio(arrayTreinos.get(i).getExercicio(),Integer.parseInt(arrayTreinos.get(i).getRepeticoes()), Integer.parseInt(arrayTreinos.get(i).getSeries()));
+                            exercicios.add(exercicio);
+                        }
+
+                        DadosEnvio usuario = new DadosEnvio(user, exercicios);
+
+
+                        Call<Void> call = retrofitService.setTreino(usuario);
+
+                        call.enqueue(new Callback<Void>() {
+                            @Override
+                            public void onResponse(Call<Void> call, Response<Void> response) {
+                                if (response.isSuccessful()) {
+                                    //
+                                } else {
+                                    // Trate falhas na solicitação
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<Void> call, Throwable t) {
+                                Log.d("CREATION", "Erro: " + t);
+                            }
+                        });
+                    }catch (Exception e){
+                        Log.e("TreinoAPI","Erro: " + e);
+                    }
+                }
+                else{
+                    Log.e("TreinoAPI","Array vazio");
+                }
             }
         });
     }
