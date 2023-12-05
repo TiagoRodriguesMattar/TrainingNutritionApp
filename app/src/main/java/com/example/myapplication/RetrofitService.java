@@ -24,5 +24,10 @@ public interface RetrofitService {
     @POST("/signup")
     Call<Void> getCadRes(@Body User user);
 
+    Call<ApiResponse> getData(@Url String url);
+    @POST("/addTreino")
+    Call<Void> setTreino(@Body DadosEnvio dados);
+    @GET("/getTreino")
+    Call<ArrayList<Exercicio>> getTreino(@Query("User") String user);
 }
 

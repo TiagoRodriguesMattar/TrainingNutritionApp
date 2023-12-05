@@ -99,11 +99,18 @@
         android:text="Mostrar treino">
 
     </Button>
+    <Button
+        android:id="@+id/saveTreino"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/showTreino"
+        android:text="Salvar treino">
+    </Button>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_below="@+id/showTreino"
+    android:layout_below="@+id/saveTreino"
     android:paddingTop="4dp"
     android:paddingBottom="4dp"
 >
