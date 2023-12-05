@@ -33,8 +33,8 @@ public class TreinoPersoRVAdapter extends RecyclerView.Adapter<TreinoPersoRVAdap
     public void onBindViewHolder(@NonNull TreinoPersoRVAdapter.ViewHolder holder, int position) {
         ExAdapter treinos = Treino.get(position);
         holder.Nome.setText(treinos.getNome());
-        holder.numSerie.setText(treinos.getSeries());
-        holder.numRepet.setText(treinos.getRepeticoes());
+        holder.numSerie.setText("Séries: " + treinos.getSeries());
+        holder.numRepet.setText("Repetições: " + treinos.getRepeticoes());
     }
 
     @Override

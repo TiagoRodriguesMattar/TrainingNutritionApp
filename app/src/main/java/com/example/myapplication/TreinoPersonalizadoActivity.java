@@ -202,7 +202,6 @@ public class TreinoPersonalizadoActivity extends AppCompatActivity{
                 }
             }
         });
-    }
 
 
         videoBack2 = findViewById(R.id.video_volta);
