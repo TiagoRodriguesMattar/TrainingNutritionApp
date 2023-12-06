@@ -1,0 +1,42 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AcoProgressoActivity">
+
+    <ImageView
+        android:id="@+id/imc_back"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:padding="10dp"
+        android:src="@drawable/ic_back_black" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Acompanhamento de Progresso"
+        android:textSize="20sp"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/imc_back" />
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imc_back"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        >
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/denisZe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            ></androidx.recyclerview.widget.RecyclerView>
+
+    </LinearLayout>
+
+</RelativeLayout>
+

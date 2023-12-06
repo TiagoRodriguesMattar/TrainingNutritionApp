@@ -79,12 +79,18 @@ public class PerfilFragment extends Fragment {
         startActivity(i);
     }
 
+    public void acProg(View view) {
+        Intent i = new Intent(getActivity(), AcoProgressoActivity.class);
+        startActivity(i);
+    }
+
     public void onViewCreated(View view, Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
 
         Button imcCalculatorBtn = view.findViewById(R.id.imcCalculator);
         Button monitoramentoCalBtn = view.findViewById(R.id.monitoramentoCalorias);
         Button acompanhamentoPeso = view.findViewById(R.id.acompanhamentoPeso);
+        Button acompanhamentoProg = view.findViewById(R.id.acompanhamentoProg);
         imcCalculatorBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,6 +109,13 @@ public class PerfilFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 acPesobtn(v);
+            }
+        });
+
+        acompanhamentoProg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                acProg(v);
             }
         });
     }
