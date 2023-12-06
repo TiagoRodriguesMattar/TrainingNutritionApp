@@ -74,7 +74,7 @@
         android:layout_marginTop="33dp"
         android:backgroundTint="#111111"
         android:layout_below="@id/nome_remedio"
-        android:text="Adicionar remedios"
+        android:text="Adicionar remédio"
         android:theme="@style/SwitchCompatTheme" />
     <Button
         android:id="@+id/button_remove_remedios"
@@ -85,7 +85,7 @@
         android:layout_marginTop="33dp"
         android:backgroundTint="#111111"
         android:layout_below="@id/button_remedios"
-        android:text="Remover remedio"
+        android:text="Remover remédio"
         android:theme="@style/SwitchCompatTheme" />
     <EditText
         android:id="@+id/nome_remedio"
