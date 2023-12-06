@@ -68,7 +68,6 @@
         android:layout_width="365dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:onClick="monCalbtn"
         android:layout_marginStart="15dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="15dp"
@@ -78,5 +77,20 @@
         android:textColor="@android:color/white"
         android:textSize="20dp"
         android:layout_marginVertical="235dp"/>
+
+    <Button
+        android:id="@+id/acompanhamentoProg"
+        android:layout_width="365dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#9A000000"
+        android:text="Acompanhamento de Progresso"
+        android:textColor="@android:color/white"
+        android:textSize="20dp"
+        android:layout_marginVertical="290dp"/>
 
 </FrameLayout>
