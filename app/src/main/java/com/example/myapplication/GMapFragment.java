@@ -178,7 +178,7 @@ public class GMapFragment extends Fragment {
                     .position(lugar.getLatLng())
                     .icon(BitmapHelper.vectorToBitmap(
                             context,
-                            R.drawable.ic_android_black_24dp,
+                            R.drawable.pngwing_com,
                             ContextCompat.getColor(context, R.color.teal_200)
                     ));
 
