@@ -133,7 +133,7 @@ public class TreinoPersonalizadoActivity extends AppCompatActivity{
                         Log.e("API Failure", "Erro na chamada da API: " + t.getMessage());
                     }
                 });
-
+                arrayTreinos.clear();
             }
         }));
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
