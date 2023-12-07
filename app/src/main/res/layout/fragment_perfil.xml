@@ -35,62 +35,117 @@
 
     <Button
         android:id="@+id/imcCalculator"
-        android:layout_width="365dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:onClick="imcDataBtn"
-        android:layout_marginStart="15dp"
+        android:layout_width="157dp"
+        android:layout_height="180dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginVertical="125dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="15dp"
+        android:layout_marginEnd="226dp"
         android:layout_marginBottom="20dp"
-        android:backgroundTint="#9A000000"
+        android:background="@drawable/square_button"
+        android:onClick="imcDataBtn"
         android:text="Cálculo de IMC"
         android:textColor="@android:color/white"
-        android:textSize="20dp"
-        android:layout_marginVertical="125dp"/>
+        android:textSize="20dp" />
+
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="384dp"
+        android:layout_marginEnd="278dp"
+        android:layout_marginBottom="297dp"
+        android:padding="10dp"
+        android:src="@drawable/calculating_icon"
+        android:layout_marginVertical="240dp"/>
+
     <Button
         android:id="@+id/monitoramentoCalorias"
-        android:layout_width="365dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:onClick="monCalbtn"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="15dp"
+        android:layout_width="157dp"
+        android:layout_height="180dp"
+        android:layout_marginVertical="125dp"
+        android:layout_marginStart="210dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="226dp"
         android:layout_marginBottom="20dp"
-        android:backgroundTint="#9A000000"
-        android:text="Monitoramento Calorias"
+        android:background="@drawable/square_button"
+        android:onClick="monCalbtn"
+        android:text="Calorias"
         android:textColor="@android:color/white"
-        android:textSize="20dp"
-        android:layout_marginVertical="180dp"/>
+        android:textSize="20dp" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginVertical="232dp"
+        android:layout_marginStart="262dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="226dp"
+        android:layout_marginBottom="20dp"
+        android:padding="10dp"
+        android:src="@drawable/diet_food_icon" />
+
     <Button
         android:id="@+id/acompanhamentoPeso"
-        android:layout_width="365dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="15dp"
+        android:layout_width="157dp"
+        android:layout_height="180dp"
+        android:layout_marginVertical="320dp"
+        android:layout_marginStart="210dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="226dp"
         android:layout_marginBottom="20dp"
-        android:backgroundTint="#9A000000"
-        android:text="Acompanhamento de Peso"
+        android:background="@drawable/square_button"
+        android:text="Peso"
         android:textColor="@android:color/white"
-        android:textSize="20dp"
-        android:layout_marginVertical="235dp"/>
+        android:textSize="20dp" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="262dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="226dp"
+        android:layout_marginBottom="20dp"
+        android:padding="10dp"
+        android:src="@drawable/scale_icon"
+        android:layout_marginVertical="420dp" />
 
     <Button
         android:id="@+id/acompanhamentoProg"
-        android:layout_width="365dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="15dp"
+        android:layout_width="157dp"
+        android:layout_height="180dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="15dp"
+        android:layout_marginEnd="226dp"
         android:layout_marginBottom="20dp"
-        android:backgroundTint="#9A000000"
-        android:text="Acompanhamento de Progresso"
+        android:background="@drawable/square_button"
+        android:text="Progresso"
         android:textColor="@android:color/white"
         android:textSize="20dp"
-        android:layout_marginVertical="290dp"/>
+        android:layout_marginVertical="320dp"/>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="384dp"
+        android:layout_marginEnd="278dp"
+        android:layout_marginBottom="297dp"
+        android:padding="10dp"
+        android:src="@drawable/progress_icon"
+        android:layout_marginVertical="420dp"/>
 
 </FrameLayout>

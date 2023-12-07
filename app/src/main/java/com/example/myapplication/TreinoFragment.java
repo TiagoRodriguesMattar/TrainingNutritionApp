@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,8 +81,12 @@ public class TreinoFragment extends Fragment {
     }
 
     public void persoTreino(View view) {
+        try{
         Intent i = new Intent(getActivity(), TreinoPersonalizadoActivity.class);
         startActivity(i);
+    }catch(Exception e){
+            Log.d("CREATION", "Erro: " + e);
+        }
     }
 
     public void onViewCreated(View view, Bundle savedInstanceState) {

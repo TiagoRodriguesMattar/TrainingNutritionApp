@@ -73,6 +73,7 @@
         android:layout_marginRight="15dp"
         android:layout_marginTop="33dp"
         android:backgroundTint="#111111"
+        android:background="@drawable/rounded_corner"
         android:layout_below="@id/nome_remedio"
         android:text="Adicionar remédio"
         android:theme="@style/SwitchCompatTheme" />
@@ -84,6 +85,7 @@
         android:layout_marginRight="15dp"
         android:layout_marginTop="33dp"
         android:backgroundTint="#111111"
+        android:background="@drawable/rounded_corner"
         android:layout_below="@id/button_remedios"
         android:text="Remover remédio"
         android:theme="@style/SwitchCompatTheme" />
